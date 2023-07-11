@@ -24,6 +24,11 @@ namespace MultiThreadedTcpEchoServer
         private static char END_OF_BLOCK = '\u001c';
         private static char START_OF_BLOCK = '\u000b';
         private static char CARRIAGE_RETURN = (char)13;
+        private static char CF = (char)10;
+        private static char EOF = (char)10;
+        private static char EOT = (char)10;
+
+
         public void StartOurTcpServer(int portNumberToListenOn)
         {
             try
