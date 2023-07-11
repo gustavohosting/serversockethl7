@@ -1,0 +1,7 @@
+C:\fpm\git\ServerSockethl7\ServerSocketHL7\obj\Debug\ServerSocketHL7.csproj.AssemblyReference.cache
+C:\fpm\git\ServerSockethl7\ServerSocketHL7\obj\Debug\ServerSocketHL7.csproj.CoreCompileInputs.cache
+C:\fpm\git\ServerSockethl7\ServerSocketHL7\bin\Debug\ServerSocketHL7.exe.config
+C:\fpm\git\ServerSockethl7\ServerSocketHL7\bin\Debug\ServerSocketHL7.exe
+C:\fpm\git\ServerSockethl7\ServerSocketHL7\bin\Debug\ServerSocketHL7.pdb
+C:\fpm\git\ServerSockethl7\ServerSocketHL7\obj\Debug\ServerSocketHL7.exe
+C:\fpm\git\ServerSockethl7\ServerSocketHL7\obj\Debug\ServerSocketHL7.pdb
