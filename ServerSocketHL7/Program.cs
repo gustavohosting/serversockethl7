@@ -22,6 +22,10 @@ namespace MultiThreadedTcpEchoServer
     {
         private TcpListener _tcpListener;
         private bool conexion = false;
+        private bool conexionPermiso = false;
+        private bool recibiendoResultados= false;
+        private string mensajeResultados = string.Empty;
+        private string mensajeResultados2 = string.Empty;
         private static char END_OF_BLOCK = '\u001c';
         private static char START_OF_BLOCK = '\u000b';
         private static char CARRIAGE_RETURN = (char)13;
@@ -29,6 +33,8 @@ namespace MultiThreadedTcpEchoServer
         private static char ENQ = (char)5;
         private static char ACK = (char)6;
         private static char LF = (char)10;
+        private static char CR = (char)13;
+        private string mensajeEspacio = "     ";
 
 
         public void StartOurTcpServer(int portNumberToListenOn)
@@ -48,7 +54,7 @@ namespace MultiThreadedTcpEchoServer
                     //wait for client connections to come in
                     var incomingTcpClientConnection = _tcpListener.AcceptTcpClient();
 
-                    Console.WriteLine("Accepted incoming client connection...");
+                    Console.WriteLine(mensajeEspacio+"-->Accepted incoming client connection...");
 
                     //create a new thread to process this client connection
                     var clientProcessingThread = new Thread(ProcessClientConnection);
@@ -73,7 +79,7 @@ namespace MultiThreadedTcpEchoServer
         {
             //the argument passed to the thread delegate is the incoming tcp client connection
             var tcpClientConnection = (TcpClient)argumentPassedForThreadProcessing;
-            Console.WriteLine("A client connection was initiated from " + tcpClientConnection.Client.RemoteEndPoint);
+            Console.WriteLine(mensajeEspacio+ "-->A client connection was initiated from " + tcpClientConnection.Client.RemoteEndPoint);
             var receivedByteBuffer = new byte[200];
             var netStream = tcpClientConnection.GetStream();
             try
@@ -87,36 +93,80 @@ namespace MultiThreadedTcpEchoServer
                     hl7Data += Encoding.UTF8.GetString(receivedByteBuffer, 0, bytesReceived);
                     if (hl7Data.Length == 1 && hl7Data.IndexOf(ENQ) == 0 && !conexion)
                     {
-                        Console.WriteLine("    -->ENQ para establecer conexion");
+                        //-----------------------------------------------------------------
+                        //equipo quiere establecer conexion!!
+                        //-----------------------------------------------------------------
+                        Console.WriteLine(mensajeEspacio + "-->ENQ del equipo para establecer conexion");
                         var ackMessage = GetAckMessage();
                         var buffer = Encoding.UTF8.GetBytes(ackMessage);
                         if (netStream.CanWrite)
                         {
                             netStream.Write(buffer, 0, buffer.Length);
-                            Console.WriteLine("    Se envio ACK para establecer conexion-->");
+                            Console.WriteLine(mensajeEspacio + "Se envio ACK para establecer conexion-->");
+                        }
+                        conexionPermiso = true;//habilitar conexion
+                        hl7Data = String.Empty;//limpio mensaje
+
+                    }
+                    else if (hl7Data.Length == 1 && hl7Data.IndexOf(EOT) == 0 && !conexion)
+                    {
+                        //-----------------------------------------------------------------
+                        //conexion aceptada y establecida por el equipo!!
+                        //-----------------------------------------------------------------
+                        conexion = true;// conexion acepta
+                        hl7Data = String.Empty;
+                        Console.WriteLine(mensajeEspacio + "-->EOT del equipo conexion establecida!!");
+                    }
+                    else if (hl7Data.Length == 1 && hl7Data.IndexOf(ENQ) == 0 && conexion && !recibiendoResultados)
+                    {
+
+                        //-----------------------------------------------------------------
+                        //equipo quiere enviar resultados
+                        //-----------------------------------------------------------------
+                        Console.WriteLine(mensajeEspacio + "-->ENQ equipo para enviar resultados");
+                        var ackMessage = GetAckMessage();
+                        var buffer = Encoding.UTF8.GetBytes(ackMessage);
+                        if (netStream.CanWrite)
+                        {
+                            netStream.Write(buffer, 0, buffer.Length);
+                            Console.WriteLine(mensajeEspacio + "Se envio ACK para recibir resultados-->");
+                        }
+                        hl7Data = String.Empty;//limpio mensaje
+                        recibiendoResultados = true;
+                    }
+                    else if (hl7Data.Length > 1 && hl7Data.IndexOf(CR) >= 0 && hl7Data.IndexOf(LF) >= 0 && conexion && recibiendoResultados)
+                    {
+                        //-----------------------------------------------------------------
+                        //equipo enviado resultados
+                        //-----------------------------------------------------------------
+                        mensajeResultados += mensajeResultados + hl7Data;
+                        hl7Data = String.Empty;//limpio mensaje
+                        Console.WriteLine(mensajeEspacio + "-->CR LF equipo");
+                        var ackMessage = GetAckMessage();
+                        var buffer = Encoding.UTF8.GetBytes(ackMessage);
+                        if (netStream.CanWrite)
+                        {
+                            netStream.Write(buffer, 0, buffer.Length);
+                            Console.WriteLine(mensajeEspacio + "Se envio ACK seguir recibiendo resultados-->");
                         }
                     }
+                    else if (hl7Data.Length == 1 && hl7Data.IndexOf(EOT) == 0 && recibiendoResultados)
+                    {
+                        //-----------------------------------------------------------------
+                        //conexion aceptada y establecida por el equipo!!
+                        //-----------------------------------------------------------------
+                        conexion = true;// conexion acepta
+                        hl7Data = String.Empty;
+                        Console.WriteLine(mensajeEspacio + "-->EOT del equipo finalizo envio de resultados!!");
+                        recibiendoResultados = false;
+                    }
                     else
-                    { 
-                        // Find start of MLLP frame, a VT character ...
-                        var startOfMllpEnvelope = hl7Data.IndexOf(START_OF_BLOCK);
-                        if (startOfMllpEnvelope >= 0)
-                        {
-                            // Now look for the end of the frame, a FS character
-                            var end = hl7Data.IndexOf(END_OF_BLOCK);
-                            if (end >= startOfMllpEnvelope) //end of block received
-                            {
-                                //if both start and end of block are recognized in the data transmitted, then extract the entire message
-                                var hl7MessageData = hl7Data.Substring(startOfMllpEnvelope + 1, end - startOfMllpEnvelope);
-                                var ackMessage = GetAckMessage();
-                                var buffer = Encoding.UTF8.GetBytes(ackMessage);
-                                if (netStream.CanWrite)
-                                {
-                                    netStream.Write(buffer, 0, buffer.Length);
-                                    Console.WriteLine("    Se envio ACK para establecer conexion-->");
-                                }
-                            }
-                        }
+                    {
+                        int enter = hl7Data.IndexOf(CR);
+                        int fin = hl7Data.IndexOf(LF);
+                        string prueba = string.Empty;
+                        mensajeResultados2 += mensajeResultados2 + hl7Data;
+                        hl7Data = String.Empty;//limpio mensaje
                     }
 
                 }
