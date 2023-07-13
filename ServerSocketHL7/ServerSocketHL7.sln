@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.33529.622
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerSocketHL7", "ServerSocketHL7.csproj", "{278189C3-22DB-4678-A448-8FEA279EC750}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HL7", "..\HL7\HL7.csproj", "{E2FA108C-F814-48D2-A950-3C22C21EEE95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "..\Entidades\Entidades.csproj", "{8B3AD09F-D434-4F77-B006-97DA0A2F2CB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{278189C3-22DB-4678-A448-8FEA279EC750}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{278189C3-22DB-4678-A448-8FEA279EC750}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{278189C3-22DB-4678-A448-8FEA279EC750}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2FA108C-F814-48D2-A950-3C22C21EEE95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2FA108C-F814-48D2-A950-3C22C21EEE95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2FA108C-F814-48D2-A950-3C22C21EEE95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2FA108C-F814-48D2-A950-3C22C21EEE95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B3AD09F-D434-4F77-B006-97DA0A2F2CB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B3AD09F-D434-4F77-B006-97DA0A2F2CB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B3AD09F-D434-4F77-B006-97DA0A2F2CB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B3AD09F-D434-4F77-B006-97DA0A2F2CB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
