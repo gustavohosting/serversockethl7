@@ -81,7 +81,7 @@ namespace MultiThreadedTcpEchoServer
             //the argument passed to the thread delegate is the incoming tcp client connection
             var tcpClientConnection = (TcpClient)argumentPassedForThreadProcessing;
             Console.WriteLine(mensajeEspacio+ "-->A client connection was initiated from " + tcpClientConnection.Client.RemoteEndPoint);
-            var receivedByteBuffer = new byte[500];
+            var receivedByteBuffer = new byte[5000];
             var netStream = tcpClientConnection.GetStream();
             try
             {
