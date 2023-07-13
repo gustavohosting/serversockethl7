@@ -26,6 +26,7 @@ namespace MultiThreadedTcpEchoServer
         private bool recibiendoResultados= false;
         private string mensajeResultados = string.Empty;
         private string mensajeResultados2 = string.Empty;
+        private string mensajeFin = CR+"L|1";
         private static char END_OF_BLOCK = '\u001c';
         private static char START_OF_BLOCK = '\u000b';
         private static char CARRIAGE_RETURN = (char)13;
@@ -80,7 +81,7 @@ namespace MultiThreadedTcpEchoServer
             //the argument passed to the thread delegate is the incoming tcp client connection
             var tcpClientConnection = (TcpClient)argumentPassedForThreadProcessing;
             Console.WriteLine(mensajeEspacio+ "-->A client connection was initiated from " + tcpClientConnection.Client.RemoteEndPoint);
-            var receivedByteBuffer = new byte[200];
+            var receivedByteBuffer = new byte[500];
             var netStream = tcpClientConnection.GetStream();
             try
             {
@@ -131,41 +132,40 @@ namespace MultiThreadedTcpEchoServer
                             netStream.Write(buffer, 0, buffer.Length);
                             Console.WriteLine(mensajeEspacio + "Se envio ACK para recibir resultados-->");
                         }
+                        mensajeResultados = string.Empty;
                         hl7Data = String.Empty;//limpio mensaje
                         recibiendoResultados = true;
                     }
-                    else if (hl7Data.Length > 1 && hl7Data.IndexOf(CR) >= 0 && hl7Data.IndexOf(LF) >= 0 && conexion && recibiendoResultados)
+                    else if (hl7Data.Length > 1 && hl7Data.IndexOf(mensajeFin) >= 0  && conexion && recibiendoResultados)
                     {
                         //-----------------------------------------------------------------
                         //equipo enviado resultados
                         //-----------------------------------------------------------------
                         mensajeResultados += mensajeResultados + hl7Data;
                         hl7Data = String.Empty;//limpio mensaje
-                        Console.WriteLine(mensajeEspacio + "-->CR LF equipo");
+                        recibiendoResultados = false;
+                        Console.WriteLine(mensajeEspacio + "-->Fin de mensaje");
                         var ackMessage = GetAckMessage();
                         var buffer = Encoding.UTF8.GetBytes(ackMessage);
                         if (netStream.CanWrite)
                         {
-                            netStream.Write(buffer, 0, buffer.Length);
-                            Console.WriteLine(mensajeEspacio + "Se envio ACK seguir recibiendo resultados-->");
+                            //netStream.Write(buffer, 0, buffer.Length);
+                            Console.WriteLine(mensajeEspacio + "Se envio ACK resultado Ok-->");
                         }
                     }
-                    else if (hl7Data.Length == 1 && hl7Data.IndexOf(EOT) == 0 && recibiendoResultados)
-                    {
-                        //-----------------------------------------------------------------
-                        //conexion aceptada y establecida por el equipo!!
-                        //-----------------------------------------------------------------
-                        conexion = true;// conexion acepta
-                        hl7Data = String.Empty;
-                        Console.WriteLine(mensajeEspacio + "-->EOT del equipo finalizo envio de resultados!!");
-                        recibiendoResultados = false;
-                    }
-                    else
-                    {
-                        int enter = hl7Data.IndexOf(CR);
-                        int fin = hl7Data.IndexOf(LF);
-                        string prueba = string.Empty;
-                        mensajeResultados2 += mensajeResultados2 + hl7Data;
+                    //else if (hl7Data.Length == 1 && hl7Data.IndexOf(EOT) == 0 && recibiendoResultados)
+                    //{
+                    //    //-----------------------------------------------------------------
+                    //    //conexion aceptada y establecida por el equipo!!
+                    //    //-----------------------------------------------------------------
+                    //    conexion = true;// conexion acepta
+                    //    mensajeResultados += mensajeResultados + hl7Data;
+                    //    hl7Data = String.Empty;
+                    //    Console.WriteLine(mensajeEspacio + "-->EOT del equipo finalizo envio de resultados!!");
+                    //    recibiendoResultados = false;
+                    //}
+                    else {
+                        mensajeResultados += mensajeResultados + hl7Data;
                         hl7Data = String.Empty;//limpio mensaje
                     }
 
