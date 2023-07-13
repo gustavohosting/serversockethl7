@@ -1,0 +1,9 @@
+C:\fpm\git\ServerSockethl7\HL7\bin\Debug\HL7.dll
+C:\fpm\git\ServerSockethl7\HL7\bin\Debug\HL7.pdb
+C:\fpm\git\ServerSockethl7\HL7\bin\Debug\Entidades.dll
+C:\fpm\git\ServerSockethl7\HL7\bin\Debug\Entidades.pdb
+C:\fpm\git\ServerSockethl7\HL7\obj\Debug\HL7.csproj.AssemblyReference.cache
+C:\fpm\git\ServerSockethl7\HL7\obj\Debug\HL7.csproj.CoreCompileInputs.cache
+C:\fpm\git\ServerSockethl7\HL7\obj\Debug\HL7.csproj.CopyComplete
+C:\fpm\git\ServerSockethl7\HL7\obj\Debug\HL7.dll
+C:\fpm\git\ServerSockethl7\HL7\obj\Debug\HL7.pdb

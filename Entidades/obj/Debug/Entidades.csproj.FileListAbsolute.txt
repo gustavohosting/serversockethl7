@@ -1,0 +1,6 @@
+C:\fpm\git\ServerSockethl7\Entidades\bin\Debug\Entidades.dll
+C:\fpm\git\ServerSockethl7\Entidades\bin\Debug\Entidades.pdb
+C:\fpm\git\ServerSockethl7\Entidades\obj\Debug\Entidades.csproj.AssemblyReference.cache
+C:\fpm\git\ServerSockethl7\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\fpm\git\ServerSockethl7\Entidades\obj\Debug\Entidades.dll
+C:\fpm\git\ServerSockethl7\Entidades\obj\Debug\Entidades.pdb
