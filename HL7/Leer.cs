@@ -83,94 +83,27 @@ namespace HL7
                         }
                         if (analito.Nombre == "PRO")
                         {
-                            if (analito.Valor.IndexOf("Neg.") != -1) analito.Valor = "No Contiene";
-                            if (analito.Valor.IndexOf("Traces") != -1) analito.Valor = "Contiene Trazas";
-                            if (analito.Valor.IndexOf("+") != -1)
-                            {
-                                analito.Valor.Replace("+", "");
-                                if (analito.Valor=="1") analito.Valor = "Contiene +";
-                                if (analito.Valor == "2") analito.Valor = "Contiene +";
-                                if (analito.Valor == "3") analito.Valor = "Contiene +";
-                                if (analito.Valor == "4") analito.Valor = "Contiene +";
-                                if (analito.Valor == "5") analito.Valor = "Contiene +";
-                                if (analito.Valor == "6") analito.Valor = "Contiene +";
-                            }
+                            analito.Valor= resultadoProcesarContieneTrazas(analito.Valor);
                         }
                         if (analito.Nombre == "GLU")
                         {
-                            if (analito.Valor.IndexOf("Neg.") != -1) analito.Valor = "No Contiene";
-                            if (analito.Valor.IndexOf("Traces") != -1) analito.Valor = "Contiene Trazas";
-                            if (analito.Valor.IndexOf("+") != -1)
-                            {
-                                analito.Valor.Replace("+", "");
-                                if (analito.Valor == "1") analito.Valor = "Contiene +";
-                                if (analito.Valor == "2") analito.Valor = "Contiene +";
-                                if (analito.Valor == "3") analito.Valor = "Contiene +";
-                                if (analito.Valor == "4") analito.Valor = "Contiene +";
-                                if (analito.Valor == "5") analito.Valor = "Contiene +";
-                                if (analito.Valor == "6") analito.Valor = "Contiene +";
-                            }
-
+                            analito.Valor = resultadoProcesarContieneTrazas(analito.Valor);
                         }
                         if (analito.Nombre == "KET")
                         {
-                            if (analito.Valor.IndexOf("Neg.") != -1) analito.Valor = "No Contiene";
-                            if (analito.Valor.IndexOf("Traces") != -1) analito.Valor = "Contiene Trazas";
-                            if (analito.Valor.IndexOf("+") != -1)
-                            {
-                                analito.Valor.Replace("+", "");
-                                if (analito.Valor == "1") analito.Valor = "Contiene +";
-                                if (analito.Valor == "2") analito.Valor = "Contiene +";
-                                if (analito.Valor == "3") analito.Valor = "Contiene +";
-                                if (analito.Valor == "4") analito.Valor = "Contiene +";
-                                if (analito.Valor == "5") analito.Valor = "Contiene +";
-                                if (analito.Valor == "6") analito.Valor = "Contiene +";
-                            }
+                            analito.Valor = resultadoProcesarContieneTrazas(analito.Valor);
                         }
                         if (analito.Nombre == "UBG")
                         {
-                            if (analito.Valor.IndexOf("Neg.") != -1) analito.Valor = "No Contiene";
-                            if (analito.Valor.IndexOf("Traces") != -1) analito.Valor = "Contiene Trazas";
-                            if (analito.Valor.IndexOf("+") != -1)
-                            {
-                                analito.Valor.Replace("+", "");
-                                if (analito.Valor == "1") analito.Valor = "Contiene +";
-                                if (analito.Valor == "2") analito.Valor = "Contiene +";
-                                if (analito.Valor == "3") analito.Valor = "Contiene +";
-                                if (analito.Valor == "4") analito.Valor = "Contiene +";
-                                if (analito.Valor == "5") analito.Valor = "Contiene +";
-                                if (analito.Valor == "6") analito.Valor = "Contiene +";
-                            }
+                            analito.Valor = resultadoProcesarContieneTrazas(analito.Valor);
                         }
                         if (analito.Nombre == "BIL")
                         {
-                            if (analito.Valor.IndexOf("Neg.") != -1) analito.Valor = "No Contiene";
-                            if (analito.Valor.IndexOf("Traces") != -1) analito.Valor = "Contiene Trazas";
-                            if (analito.Valor.IndexOf("+") != -1)
-                            {
-                                analito.Valor.Replace("+", "");
-                                if (analito.Valor == "1") analito.Valor = "Contiene +";
-                                if (analito.Valor == "2") analito.Valor = "Contiene +";
-                                if (analito.Valor == "3") analito.Valor = "Contiene +";
-                                if (analito.Valor == "4") analito.Valor = "Contiene +";
-                                if (analito.Valor == "5") analito.Valor = "Contiene +";
-                                if (analito.Valor == "6") analito.Valor = "Contiene +";
-                            }
+                            analito.Valor = resultadoProcesarContieneTrazas(analito.Valor);
                         }
                         if (analito.Nombre == "BLD")
                         {
-                            if (analito.Valor.IndexOf("Neg.") != -1) analito.Valor = "No Contiene";
-                            if (analito.Valor.IndexOf("Traces") != -1) analito.Valor = "Contiene Trazas";
-                            if (analito.Valor.IndexOf("+") != -1)
-                            {
-                                analito.Valor.Replace("+", "");
-                                if (analito.Valor == "1") analito.Valor = "Contiene +";
-                                if (analito.Valor == "2") analito.Valor = "Contiene +";
-                                if (analito.Valor == "3") analito.Valor = "Contiene +";
-                                if (analito.Valor == "4") analito.Valor = "Contiene +";
-                                if (analito.Valor == "5") analito.Valor = "Contiene +";
-                                if (analito.Valor == "6") analito.Valor = "Contiene +";
-                            }
+                            analito.Valor = resultadoProcesarContieneTrazas(analito.Valor);
                         }
                         if (analito.Nombre == "COLOR")
                         { 
@@ -182,15 +115,20 @@ namespace HL7
                         }
                         if (analito.Nombre == "RBC")
                         {
+                            analito.Valor = resultadosMenosValorMasde30(analito.Valor);
                         }
+                            //( analito.Valor = "Contiene +";
                         if (analito.Nombre == "nRBC")
                         {
+                            //no va
                         }
                         if (analito.Nombre == "WBC")
-                        { 
+                        {
+                            analito.Valor = resultadosMenosValorMasde30(analito.Valor);
                         }
                         if (analito.Nombre == "EPC")
                         {
+                            analito.Valor = resultadosMenosValorMasde30(analito.Valor);
                         }
                         if (analito.Nombre == "Casts")
                         {
@@ -226,11 +164,45 @@ namespace HL7
                         }
                     }
                 }
-                }
                 catch(Exception e) {
                     string error = e.Message;
                 }
             }
         }
+        private string resultadoProcesarContieneTrazas( string Valor)
+        {
+            if (Valor.IndexOf("Neg.") != -1) Valor = "No Contiene";
+            if (Valor.IndexOf("Traces") != -1) Valor = "Contiene Trazas";
+            if (Valor.IndexOf("+") != -1)
+            {
+                Valor.Replace("+", "");
+                if (Valor == "1") Valor = "Contiene +";
+                if (Valor == "2") Valor = "Contiene +";
+                if (Valor == "3") Valor = "Contiene +";
+                if (Valor == "4") Valor = "Contiene +";
+                if (Valor == "5") Valor = "Contiene +";
+                if (Valor == "6") Valor = "Contiene +";
+            }
+            return Valor;
+        }
+        private string resultadosMenosValorMasde30(string Valor)
+        {
+            char[] numeros = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
+            if (Valor.IndexOfAny(numeros) >= 0)
+            {
+                int numero = Convert.ToInt32(Valor);
+                if (Convert.ToInt32(Valor) == 0)
+                {
+                    Valor = "Menos de 1";
+                }
+                else if (Convert.ToInt32(Valor) <= 30)
+                {
+
+                }
+                else { Valor = "Mas de 30"; }
+            }
+            return Valor;
+        }
+
     }
 }
