@@ -152,6 +152,7 @@ namespace MultiThreadedTcpEchoServer
                         {
                             netStream.Write(buffer, 0, buffer.Length);
                             Console.WriteLine(mensajeEspacio + "EOT recepcion completa-->");
+
                         }
                     }
                     else if (hl7Data.Length > 1 && hl7Data.IndexOf(EOT) >= 0 && conexion && recibiendoResultados)
