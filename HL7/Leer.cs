@@ -34,7 +34,7 @@ namespace HL7
             l_analitos.Add(new Entidades.Analito { Nombre = "GRAN" });
             l_analitos.Add(new Entidades.Analito { Nombre = "CRYSTALS" });
             l_analitos.Add(new Entidades.Analito { Nombre = "CaOX" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "CUSTOM1" });
+            l_analitos.Add(new Entidades.Analito { Nombre = "CUSTOM1\\Fosf am" });
             l_analitos.Add(new Entidades.Analito { Nombre = "TRIP" });
             l_analitos.Add(new Entidades.Analito { Nombre = "UA" });
             l_analitos.Add(new Entidades.Analito { Nombre = "AMO" });
@@ -135,6 +135,7 @@ namespace HL7
                         }
                         if (analito.Nombre == "HYA")
                         {
+
                         }
                         if (analito.Nombre == "GRAN")
                         {
@@ -155,12 +156,16 @@ namespace HL7
                         {
                         }
                         if (analito.Nombre == "AMO")
-                        { }
+                        {
+                            
+                        }
                         if (analito.Nombre == "Bacteria")
                         {
+                            //no se graba en kern
                         }
                         if (analito.Nombre == "YST")
                         {
+                            //no se graba en kern
                         }
                     }
                 }
@@ -197,7 +202,7 @@ namespace HL7
                 }
                 else if (Convert.ToInt32(Valor) <= 30)
                 {
-
+                    //se deja el mismo valor
                 }
                 else { Valor = "Mas de 30"; }
             }

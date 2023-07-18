@@ -41,7 +41,7 @@ namespace MultiThreadedTcpEchoServer
         {
             try
             {
-                string ip = "192.168.0.188";
+                string ip = "192.168.1.103";
                 _tcpListener = new TcpListener(IPAddress.Parse(ip), portNumberToListenOn);
 
                 //start the TCP listener that we have instantiated
