@@ -1,0 +1,25 @@
+C:\Users\gustavo.FPMLAB\Desktop\Desarrollos\Ws Sucre\Interface\Log\bin\Debug\Log.dll
+C:\Users\gustavo.FPMLAB\Desktop\Desarrollos\Ws Sucre\Interface\Log\bin\Debug\Log.pdb
+C:\Users\gustavo.FPMLAB\Desktop\Desarrollos\Ws Sucre\Interface\Log\obj\Debug\Log.dll
+C:\Users\gustavo.FPMLAB\Desktop\Desarrollos\Ws Sucre\Interface\Log\obj\Debug\Log.pdb
+C:\Users\Sucre 06\Desktop\Interface\Log\bin\Debug\Log.dll
+C:\Users\Sucre 06\Desktop\Interface\Log\bin\Debug\Log.pdb
+C:\Users\Sucre 06\Desktop\Interface\Log\obj\Debug\Log.dll
+C:\Users\Sucre 06\Desktop\Interface\Log\obj\Debug\Log.pdb
+C:\fpm\git\Interface - orinas Diriu H-100\Log\bin\Debug\Log.dll
+C:\fpm\git\Interface - orinas Diriu H-100\Log\bin\Debug\Log.pdb
+C:\fpm\git\Interface - orinas Diriu H-100\Log\obj\Debug\Log.csproj.AssemblyReference.cache
+C:\fpm\git\Interface - orinas Diriu H-100\Log\obj\Debug\Log.csproj.CoreCompileInputs.cache
+C:\fpm\git\Interface - orinas Diriu H-100\Log\obj\Debug\Log.dll
+C:\fpm\git\Interface - orinas Diriu H-100\Log\obj\Debug\Log.pdb
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\Log\bin\Debug\Log.dll
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\Log\bin\Debug\Log.pdb
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\Log\obj\Debug\Log.csproj.CoreCompileInputs.cache
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\Log\obj\Debug\Log.dll
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\Log\obj\Debug\Log.pdb
+C:\fpm\git\ServerSockethl7\Log\bin\Debug\Log.dll
+C:\fpm\git\ServerSockethl7\Log\bin\Debug\Log.pdb
+C:\fpm\git\ServerSockethl7\Log\obj\Debug\Log.csproj.AssemblyReference.cache
+C:\fpm\git\ServerSockethl7\Log\obj\Debug\Log.csproj.CoreCompileInputs.cache
+C:\fpm\git\ServerSockethl7\Log\obj\Debug\Log.dll
+C:\fpm\git\ServerSockethl7\Log\obj\Debug\Log.pdb

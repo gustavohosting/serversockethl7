@@ -10,3 +10,9 @@ C:\fpm\git\ServerSockethl7\ServerSocketHL7\bin\Debug\Entidades.dll
 C:\fpm\git\ServerSockethl7\ServerSocketHL7\bin\Debug\HL7.pdb
 C:\fpm\git\ServerSockethl7\ServerSocketHL7\bin\Debug\Entidades.pdb
 C:\fpm\git\ServerSockethl7\ServerSocketHL7\obj\Debug\ServerSocketHL7.csproj.CopyComplete
+C:\fpm\git\ServerSockethl7\ServerSocketHL7\bin\Debug\ServerSocketHL7.exe.manifest
+C:\fpm\git\ServerSockethl7\ServerSocketHL7\bin\Debug\ServerSocketHL7.application
+C:\fpm\git\ServerSockethl7\ServerSocketHL7\obj\Debug\ServerSocketHL7.exe.manifest
+C:\fpm\git\ServerSockethl7\ServerSocketHL7\obj\Debug\ServerSocketHL7.application
+C:\fpm\git\ServerSockethl7\ServerSocketHL7\bin\Debug\Log.dll
+C:\fpm\git\ServerSockethl7\ServerSocketHL7\bin\Debug\Log.pdb

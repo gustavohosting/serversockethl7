@@ -37,6 +37,7 @@ namespace MultiThreadedTcpEchoServer
         private static char CR = (char)13;
         private string mensajeEspacio = "     ";
         HL7.Leer leerHl7 = new HL7.Leer();
+        private Log.Log log = new Log.Log("c:\\interfazLog"); 
         public void StartOurTcpServer(int portNumberToListenOn)
         {
             try
@@ -48,7 +49,8 @@ namespace MultiThreadedTcpEchoServer
                 _tcpListener.Start();
 
                 Console.WriteLine("Server escuchando en IP -->"+ip+" port:"+portNumberToListenOn);
-                leerHl7.archivoLeer();
+                //leerHl7.archivoLeer();
+                log.escribirLog("prueba de log");
                 while (true)
                 {
                     //wait for client connections to come in
