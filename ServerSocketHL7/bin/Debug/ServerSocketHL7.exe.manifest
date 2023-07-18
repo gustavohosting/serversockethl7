@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HL7.dll" size="8704">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HL7.dll" size="10752">
       <assemblyIdentity name="HL7" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>xCHOnuzO0eeJrLqYAT/YU8qy+P5ras7nYWP2GKFUMXE=</dsig:DigestValue>
+        <dsig:DigestValue>153wDNUcquJwsb+KMDK+T5nJ9zbXKtoy11z1zOqMchs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -78,14 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ServerSocketHL7.exe" size="9128">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ServerSocketHL7.exe" size="9640">
       <assemblyIdentity name="ServerSocketHL7" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>SHf6p1fnRS4iVbpr8bTN2dz9uJRIEYFGZJeaCKUQqQI=</dsig:DigestValue>
+        <dsig:DigestValue>UT5xzcwniaJnNcFU+1CeoqDWxRpRIv4xl34UXRrA/f0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

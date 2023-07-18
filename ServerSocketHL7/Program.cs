@@ -3,6 +3,8 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Collections.Generic;
+using Entidades;
 
 namespace MultiThreadedTcpEchoServer
 {
@@ -36,8 +38,11 @@ namespace MultiThreadedTcpEchoServer
         private static char LF = (char)10;
         private static char CR = (char)13;
         private string mensajeEspacio = "     ";
-        HL7.Leer leerHl7 = new HL7.Leer();
         private Log.Log log = new Log.Log("c:\\interfazLog"); 
+        /// <summary>
+        /// Espéra las conexiones entrantes
+        /// </summary>
+        /// <param name="portNumberToListenOn"></param>
         public void StartOurTcpServer(int portNumberToListenOn)
         {
             try
@@ -76,6 +81,10 @@ namespace MultiThreadedTcpEchoServer
                 _tcpListener?.Stop();
             }
         }
+        /// <summary>
+        /// Procesa los mensajes del cliente
+        /// </summary>
+        /// <param name="argumentPassedForThreadProcessing"></param>
         private void ProcessClientConnection(object argumentPassedForThreadProcessing)
         {
             //the argument passed to the thread delegate is the incoming tcp client connection
@@ -120,7 +129,6 @@ namespace MultiThreadedTcpEchoServer
                     }
                     else if (hl7Data.Length == 1 && hl7Data.IndexOf(ENQ) == 0 && conexion && !recibiendoResultados)
                     {
-
                         //-----------------------------------------------------------------
                         //equipo quiere enviar resultados
                         //-----------------------------------------------------------------
@@ -152,8 +160,11 @@ namespace MultiThreadedTcpEchoServer
                         {
                             netStream.Write(buffer, 0, buffer.Length);
                             Console.WriteLine(mensajeEspacio + "EOT recepcion completa-->");
-
                         }
+                        //procesar mensaje
+                        List<Entidades.Analito> l_analitos = new List<Analito>();
+                        HL7.HL7 hl7 = new HL7.HL7();
+                        hl7.mensajeLeer(mensajeResultados, ref l_analitos);
                     }
                     else if (hl7Data.Length > 1 && hl7Data.IndexOf(EOT) >= 0 && conexion && recibiendoResultados)
                     {
@@ -169,9 +180,9 @@ namespace MultiThreadedTcpEchoServer
                             //netStream.Write(buffer, 0, buffer.Length);
                             Console.WriteLine(mensajeEspacio + "...........>");
                         }
-
                     }
                     else {
+                        // guardar los mensajes hasta el fin
                         mensajeResultados += mensajeResultados + hl7Data;
                         hl7Data = String.Empty;//limpio mensaje
                     }
@@ -191,7 +202,6 @@ namespace MultiThreadedTcpEchoServer
                 tcpClientConnection.Close();
             }
         }
-
         private string GetAckMessage()
         {
             var ackMessage = new StringBuilder();

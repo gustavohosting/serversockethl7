@@ -6,12 +6,12 @@ namespace HL7
     /// <summary>
     /// Carga los analitos recibos y los procesa
     /// </summary>
-    public class Leer
+    public class HL7
     {
         private string renglonResultado;
         private string path = "C:\\fpm\\git\\ServerSockethl7\\ServerSocketHL7\\";
         private string archivoNombre = "resultados.txt";
-        public Leer()
+        public HL7()
         {
             renglonResultado= "R|";
         }
@@ -156,13 +156,13 @@ namespace HL7
         /// </summary>
         /// <param name="mensaje"></param>
         /// <param name="l_analitos"></param>
-        public void mensajeLeer(string mensaje, List<Entidades.Analito> l_analitos)
+        public void mensajeLeer(string mensaje,ref List<Entidades.Analito> l_analitos)
         {
             // procesa el resultado
             try
             {
-
-                StreamReader sr = new StreamReader(path + archivoNombre);
+                agregarAnalitos(ref l_analitos);
+                //StreamReader sr = new StreamReader(path + archivoNombre);
                 string nombre = "";
                 string valor = "";
                 string [] mensajeDivido = mensaje.Split((char)13);
@@ -178,7 +178,7 @@ namespace HL7
                         valor = renglonValores[3].ToString();
                         l_analitos.Find(x => x.Nombre == nombre).Valor = valor;
                     }
-                    renglon = sr.ReadLine();
+                    //renglon = sr.ReadLine();
                 }
                 foreach (Entidades.Analito analito in l_analitos)
                 {
@@ -338,6 +338,10 @@ namespace HL7
             }
             return Valor;
         }
+        /// <summary>
+        /// Cargar analitos de la prestacion
+        /// </summary>
+        /// <param name="l_analitos"></param>
         private void agregarAnalitos(ref List<Entidades.Analito> l_analitos)
         {
             l_analitos.Add(new Entidades.Analito { Nombre = "SG" });

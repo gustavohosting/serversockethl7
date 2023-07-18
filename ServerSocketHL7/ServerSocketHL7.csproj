@@ -81,6 +81,10 @@
     <None Include="ServerSocketHL7_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{8b3ad09f-d434-4f77-b006-97da0a2f2cb1}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HL7\HL7.csproj">
       <Project>{e2fa108c-f814-48d2-a950-3c22c21eee95}</Project>
       <Name>HL7</Name>
