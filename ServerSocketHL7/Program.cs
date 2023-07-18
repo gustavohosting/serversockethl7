@@ -42,7 +42,7 @@ namespace MultiThreadedTcpEchoServer
         {
             try
             {
-                string ip = "192.168.1.103";
+                string ip = "192.168.0.135";
                 _tcpListener = new TcpListener(IPAddress.Parse(ip), portNumberToListenOn);
 
                 //start the TCP listener that we have instantiated
@@ -136,7 +136,7 @@ namespace MultiThreadedTcpEchoServer
                         hl7Data = String.Empty;//limpio mensaje
                         recibiendoResultados = true;
                     }
-                    else if (hl7Data.Length > 1 && hl7Data.IndexOf(mensajeFin) >= 0  && conexion && recibiendoResultados)
+                    else if (hl7Data.Length > 1 && hl7Data.IndexOf(mensajeFin) >= 0 && conexion && recibiendoResultados)
                     {
                         //-----------------------------------------------------------------
                         //equipo enviado resultados
@@ -144,15 +144,31 @@ namespace MultiThreadedTcpEchoServer
                         mensajeResultados += mensajeResultados + hl7Data;
                         hl7Data = String.Empty;//limpio mensaje
                         log.escribirLog(mensajeResultados);
-                        recibiendoResultados = false;
+                        //recibiendoResultados = false;
                         Console.WriteLine(mensajeEspacio + "-->Fin de mensaje");
                         var ackMessage = GetAckMessage();
                         var buffer = Encoding.UTF8.GetBytes(ackMessage);
                         if (netStream.CanWrite)
                         {
                             //netStream.Write(buffer, 0, buffer.Length);
+                            //Console.WriteLine(mensajeEspacio + "Se envio ACK resultado Ok-->");
+                        }
+                    }
+                    else if (hl7Data.Length > 1 && hl7Data.IndexOf(EOT) >= 0 && conexion && recibiendoResultados)
+                    {
+                        mensajeResultados = String.Empty;
+                        hl7Data = String.Empty;//limpio mensaje
+                        log.escribirLog("Mensaje finalizado!!");
+                        //recibiendoResultados = false;
+                        Console.WriteLine(mensajeEspacio + "-->Fin de transmicion");
+                        var ackMessage = GetAckMessage();
+                        var buffer = Encoding.UTF8.GetBytes(ackMessage);
+                        if (netStream.CanWrite)
+                        {
+                            netStream.Write(buffer, 0, buffer.Length);
                             Console.WriteLine(mensajeEspacio + "Se envio ACK resultado Ok-->");
                         }
+
                     }
                     else {
                         mensajeResultados += mensajeResultados + hl7Data;
