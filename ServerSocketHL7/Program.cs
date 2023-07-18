@@ -42,7 +42,7 @@ namespace MultiThreadedTcpEchoServer
         {
             try
             {
-                string ip = "192.168.0.135";
+                string ip = "192.168.0.188";
                 _tcpListener = new TcpListener(IPAddress.Parse(ip), portNumberToListenOn);
 
                 //start the TCP listener that we have instantiated
@@ -144,14 +144,14 @@ namespace MultiThreadedTcpEchoServer
                         mensajeResultados += mensajeResultados + hl7Data;
                         hl7Data = String.Empty;//limpio mensaje
                         log.escribirLog(mensajeResultados);
-                        //recibiendoResultados = false;
+                        recibiendoResultados = false;
                         Console.WriteLine(mensajeEspacio + "-->Fin de mensaje");
-                        var ackMessage = GetAckMessage();
+                        var ackMessage = GetEOTMessage();
                         var buffer = Encoding.UTF8.GetBytes(ackMessage);
                         if (netStream.CanWrite)
                         {
-                            //netStream.Write(buffer, 0, buffer.Length);
-                            //Console.WriteLine(mensajeEspacio + "Se envio ACK resultado Ok-->");
+                            netStream.Write(buffer, 0, buffer.Length);
+                            Console.WriteLine(mensajeEspacio + "EOT recepcion completa-->");
                         }
                     }
                     else if (hl7Data.Length > 1 && hl7Data.IndexOf(EOT) >= 0 && conexion && recibiendoResultados)
@@ -165,8 +165,8 @@ namespace MultiThreadedTcpEchoServer
                         var buffer = Encoding.UTF8.GetBytes(ackMessage);
                         if (netStream.CanWrite)
                         {
-                            netStream.Write(buffer, 0, buffer.Length);
-                            Console.WriteLine(mensajeEspacio + "Se envio ACK resultado Ok-->");
+                            //netStream.Write(buffer, 0, buffer.Length);
+                            Console.WriteLine(mensajeEspacio + "...........>");
                         }
 
                     }
@@ -195,6 +195,12 @@ namespace MultiThreadedTcpEchoServer
         {
             var ackMessage = new StringBuilder();
             ackMessage = ackMessage.Append(ACK);
+            return ackMessage.ToString();
+        }
+        private string GetEOTMessage()
+        {
+            var ackMessage = new StringBuilder();
+            ackMessage = ackMessage.Append(EOT);
             return ackMessage.ToString();
         }
     }
