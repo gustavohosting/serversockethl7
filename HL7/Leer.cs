@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 namespace HL7
 {
+    /// <summary>
+    /// Carga los analitos recibos y los procesa
+    /// </summary>
     public class Leer
     {
         private string renglonResultado;
@@ -43,6 +46,7 @@ namespace HL7
         }
         public void archivoLeer()
         {
+            // procesa el resultado
             if (File.Exists(path+archivoNombre))
             {
                 try
@@ -66,7 +70,7 @@ namespace HL7
                     {
                         if (analito.Nombre== "SG")
                         {
-                            if (analito.Valor.ToString().IndexOf(".") != -1) analito.Valor.ToString().Replace('.', ',');
+                            if (analito.Valor.ToString().IndexOf(".") != -1) analito.Valor=analito.Valor.ToString().Replace('.', ',');
                         }
                         if (analito.Nombre == "LEU")
                         { 
@@ -79,7 +83,7 @@ namespace HL7
                         }
                         if (analito.Nombre == "pH")
                         {
-                            if (analito.Valor.ToString().IndexOf(".") != -1) analito.Valor.ToString().Replace('.', ',');
+                            if (analito.Valor.ToString().IndexOf(".") != -1) analito.Valor=analito.Valor.ToString().Replace('.', ',');
                         }
                         if (analito.Nombre == "PRO")
                         {
@@ -174,8 +178,14 @@ namespace HL7
                 }
             }
         }
+        /// <summary>
+        /// Cambia el valor traces neg. 6
+        /// </summary>
+        /// <param name="Valor"></param>
+        /// <returns></returns>
         private string resultadoProcesarContieneTrazas( string Valor)
         {
+            
             if (Valor.IndexOf("Neg.") != -1) Valor = "No Contiene";
             if (Valor.IndexOf("Traces") != -1) Valor = "Contiene Trazas";
             if (Valor.IndexOf("+") != -1)
@@ -190,6 +200,11 @@ namespace HL7
             }
             return Valor;
         }
+        /// <summary>
+        /// retorna menor de .....1,2, mayor de 30
+        /// </summary>
+        /// <param name="Valor"></param>
+        /// <returns></returns>
         private string resultadosMenosValorMasde30(string Valor)
         {
             char[] numeros = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
