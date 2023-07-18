@@ -17,6 +17,7 @@ namespace HL7
         }
         public void archivoLeer(ref List<Entidades.Analito> l_analitos)
         {
+            // NO DEBER FUNCIONAR MODIFIQUE ESTO Y LO CONVERTI EN UNA FUNCION QUE LEE UN STRING.
             // agregar analitos de orinas
             agregarAnalitos(ref l_analitos);
             if (File.Exists(path+archivoNombre))
@@ -150,141 +151,145 @@ namespace HL7
                 }
             }
         }
+        /// <summary>
+        /// Procesar un mensaje(string) y buscar valores
+        /// </summary>
+        /// <param name="mensaje"></param>
+        /// <param name="l_analitos"></param>
         public void mensajeLeer(string mensaje, List<Entidades.Analito> l_analitos)
         {
             // procesa el resultado
-            if (File.Exists(path + archivoNombre))
+            try
             {
-                try
+
+                StreamReader sr = new StreamReader(path + archivoNombre);
+                string nombre = "";
+                string valor = "";
+                string [] mensajeDivido = mensaje.Split((char)13);
+                string renglon = "";
+                for(int i =0;mensajeDivido.Length>i;i++)
                 {
-                    StreamReader sr = new StreamReader(path + archivoNombre);
-                    string nombre = "";
-                    string valor = "";
-                    string renglon = sr.ReadLine();
-                    while (renglon != null)
+                    renglon = mensajeDivido[i];
+                    if (renglon.IndexOf(renglonResultado) == 0)
                     {
-                        if (renglon.IndexOf(renglonResultado) == 0)
-                        {
-                            string[] renglonValores = renglon.Split('|');
-                            Entidades.Analito analito = new Entidades.Analito();
-                            nombre = renglonValores[2].ToString().Substring(3);
-                            valor = renglonValores[3].ToString();
-                            l_analitos.Find(x => x.Nombre == nombre).Valor = valor;
-                        }
-                        renglon = sr.ReadLine();
+                        string[] renglonValores = renglon.Split('|');
+                        Entidades.Analito analito = new Entidades.Analito();
+                        nombre = renglonValores[2].ToString().Substring(3);
+                        valor = renglonValores[3].ToString();
+                        l_analitos.Find(x => x.Nombre == nombre).Valor = valor;
                     }
-                    sr.Close();
-                    foreach (Entidades.Analito analito in l_analitos)
+                    renglon = sr.ReadLine();
+                }
+                foreach (Entidades.Analito analito in l_analitos)
+                {
+                    if (analito.Nombre == "SG")
                     {
-                        if (analito.Nombre == "SG")
-                        {
-                            if (analito.Valor.ToString().IndexOf(".") != -1) analito.Valor = analito.Valor.ToString().Replace('.', ',');
-                        }
-                        if (analito.Nombre == "LEU")
-                        {
-                            // los leuco no se pasan a kern
-                        }
-                        if (analito.Nombre == "NIT")
-                        {
-                            if (analito.Valor.ToString().IndexOf("Pos.") != -1) analito.Valor = "Positivo";
-                            else analito.Valor = "Negativo";
-                        }
-                        if (analito.Nombre == "pH")
-                        {
-                            if (analito.Valor.ToString().IndexOf(".") != -1) analito.Valor = analito.Valor.ToString().Replace('.', ',');
-                        }
-                        if (analito.Nombre == "PRO")
-                        {
-                            analito.Valor = resultadoProcesarContieneTrazas(analito.Valor);
-                        }
-                        if (analito.Nombre == "GLU")
-                        {
-                            analito.Valor = resultadoProcesarContieneTrazas(analito.Valor);
-                        }
-                        if (analito.Nombre == "KET")
-                        {
-                            analito.Valor = resultadoProcesarContieneTrazas(analito.Valor);
-                        }
-                        if (analito.Nombre == "UBG")
-                        {
-                            analito.Valor = resultadoProcesarContieneTrazas(analito.Valor);
-                        }
-                        if (analito.Nombre == "BIL")
-                        {
-                            analito.Valor = resultadoProcesarContieneTrazas(analito.Valor);
-                        }
-                        if (analito.Nombre == "BLD")
-                        {
-                            analito.Valor = resultadoProcesarContieneTrazas(analito.Valor);
-                        }
-                        if (analito.Nombre == "COLOR")
-                        {
-                            //no va a kern
-                        }
-                        if (analito.Nombre == "CLARITY")
-                        {
-                            //no va a kern
-                        }
-                        if (analito.Nombre == "RBC")
-                        {
-                            analito.Valor = resultadosMenosValorMasde30(analito.Valor);
-                        }
-                        //( analito.Valor = "Contiene +";
-                        if (analito.Nombre == "nRBC")
-                        {
-                            //no va
-                        }
-                        if (analito.Nombre == "WBC")
-                        {
-                            analito.Valor = resultadosMenosValorMasde30(analito.Valor);
-                        }
-                        if (analito.Nombre == "EPC")
-                        {
-                            analito.Valor = resultadosMenosValorMasde30(analito.Valor);
-                        }
-                        if (analito.Nombre == "Casts")
-                        {
-                        }
-                        if (analito.Nombre == "HYA")
-                        {
+                        if (analito.Valor.ToString().IndexOf(".") != -1) analito.Valor = analito.Valor.ToString().Replace('.', ',');
+                    }
+                    if (analito.Nombre == "LEU")
+                    {
+                        // los leuco no se pasan a kern
+                    }
+                    if (analito.Nombre == "NIT")
+                    {
+                        if (analito.Valor.ToString().IndexOf("Pos.") != -1) analito.Valor = "Positivo";
+                        else analito.Valor = "Negativo";
+                    }
+                    if (analito.Nombre == "pH")
+                    {
+                        if (analito.Valor.ToString().IndexOf(".") != -1) analito.Valor = analito.Valor.ToString().Replace('.', ',');
+                    }
+                    if (analito.Nombre == "PRO")
+                    {
+                        analito.Valor = resultadoProcesarContieneTrazas(analito.Valor);
+                    }
+                    if (analito.Nombre == "GLU")
+                    {
+                        analito.Valor = resultadoProcesarContieneTrazas(analito.Valor);
+                    }
+                    if (analito.Nombre == "KET")
+                    {
+                        analito.Valor = resultadoProcesarContieneTrazas(analito.Valor);
+                    }
+                    if (analito.Nombre == "UBG")
+                    {
+                        analito.Valor = resultadoProcesarContieneTrazas(analito.Valor);
+                    }
+                    if (analito.Nombre == "BIL")
+                    {
+                        analito.Valor = resultadoProcesarContieneTrazas(analito.Valor);
+                    }
+                    if (analito.Nombre == "BLD")
+                    {
+                        analito.Valor = resultadoProcesarContieneTrazas(analito.Valor);
+                    }
+                    if (analito.Nombre == "COLOR")
+                    {
+                        //no va a kern
+                    }
+                    if (analito.Nombre == "CLARITY")
+                    {
+                        //no va a kern
+                    }
+                    if (analito.Nombre == "RBC")
+                    {
+                        analito.Valor = resultadosMenosValorMasde30(analito.Valor);
+                    }
+                    //( analito.Valor = "Contiene +";
+                    if (analito.Nombre == "nRBC")
+                    {
+                        //no va
+                    }
+                    if (analito.Nombre == "WBC")
+                    {
+                        analito.Valor = resultadosMenosValorMasde30(analito.Valor);
+                    }
+                    if (analito.Nombre == "EPC")
+                    {
+                        analito.Valor = resultadosMenosValorMasde30(analito.Valor);
+                    }
+                    if (analito.Nombre == "Casts")
+                    {
+                    }
+                    if (analito.Nombre == "HYA")
+                    {
 
-                        }
-                        if (analito.Nombre == "GRAN")
-                        {
-                        }
-                        if (analito.Nombre == "CRYSTALS")
-                        {
-                        }
-                        if (analito.Nombre == "CaOX")
-                        {
-                        }
-                        if (analito.Nombre == "CUSTOM1")
-                        {
-                        }
-                        if (analito.Nombre == "TRIP")
-                        {
-                        }
-                        if (analito.Nombre == "UA")
-                        {
-                        }
-                        if (analito.Nombre == "AMO")
-                        {
+                    }
+                    if (analito.Nombre == "GRAN")
+                    {
+                    }
+                    if (analito.Nombre == "CRYSTALS")
+                    {
+                    }
+                    if (analito.Nombre == "CaOX")
+                    {
+                    }
+                    if (analito.Nombre == "CUSTOM1")
+                    {
+                    }
+                    if (analito.Nombre == "TRIP")
+                    {
+                    }
+                    if (analito.Nombre == "UA")
+                    {
+                    }
+                    if (analito.Nombre == "AMO")
+                    {
 
-                        }
-                        if (analito.Nombre == "Bacteria")
-                        {
-                            //no se graba en kern
-                        }
-                        if (analito.Nombre == "YST")
-                        {
-                            //no se graba en kern
-                        }
+                    }
+                    if (analito.Nombre == "Bacteria")
+                    {
+                        //no se graba en kern
+                    }
+                    if (analito.Nombre == "YST")
+                    {
+                        //no se graba en kern
                     }
                 }
-                catch (Exception e)
-                {
-                    string error = e.Message;
-                }
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
             }
         }
 
@@ -333,7 +338,7 @@ namespace HL7
             }
             return Valor;
         }
-        private void agregarAnalitos(ref List<Entidades.Analito> analitos)
+        private void agregarAnalitos(ref List<Entidades.Analito> l_analitos)
         {
             l_analitos.Add(new Entidades.Analito { Nombre = "SG" });
             l_analitos.Add(new Entidades.Analito { Nombre = "LEU" });
@@ -363,6 +368,5 @@ namespace HL7
             l_analitos.Add(new Entidades.Analito { Nombre = "Bacteria" });
             l_analitos.Add(new Entidades.Analito { Nombre = "YST" });
         }
-
     }
 }
