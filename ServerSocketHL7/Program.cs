@@ -47,10 +47,9 @@ namespace MultiThreadedTcpEchoServer
 
                 //start the TCP listener that we have instantiated
                 _tcpListener.Start();
-
+                Console.WriteLine("Grabando log en " + log.PathLog);
                 Console.WriteLine("Server escuchando en IP -->"+ip+" port:"+portNumberToListenOn);
                 //leerHl7.archivoLeer();
-                log.escribirLog("prueba de log");
                 while (true)
                 {
                     //wait for client connections to come in
@@ -144,6 +143,7 @@ namespace MultiThreadedTcpEchoServer
                         //-----------------------------------------------------------------
                         mensajeResultados += mensajeResultados + hl7Data;
                         hl7Data = String.Empty;//limpio mensaje
+                        log.escribirLog(mensajeResultados);
                         recibiendoResultados = false;
                         Console.WriteLine(mensajeEspacio + "-->Fin de mensaje");
                         var ackMessage = GetAckMessage();
