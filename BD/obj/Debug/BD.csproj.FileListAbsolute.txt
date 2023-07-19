@@ -1,0 +1,23 @@
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\BD\bin\Debug\BD.dll
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\BD\bin\Debug\BD.pdb
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\BD\bin\Debug\Entidades.dll
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\BD\bin\Debug\LIS.dll
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\BD\bin\Debug\Recursos.dll
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\BD\bin\Debug\Entidades.pdb
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\BD\bin\Debug\Entidades.dll.config
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\BD\bin\Debug\LIS.pdb
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\BD\bin\Debug\Recursos.pdb
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\BD\obj\Debug\BD.csproj.AssemblyReference.cache
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\BD\obj\Debug\BD.csproj.CoreCompileInputs.cache
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\BD\obj\Debug\BD.csproj.CopyComplete
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\BD\obj\Debug\BD.dll
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\BD\obj\Debug\BD.pdb
+C:\fpm\git\ServerSockethl7\BD\obj\Debug\BD.csproj.AssemblyReference.cache
+C:\fpm\git\ServerSockethl7\BD\obj\Debug\BD.csproj.CoreCompileInputs.cache
+C:\fpm\git\ServerSockethl7\BD\obj\Debug\BD.dll
+C:\fpm\git\ServerSockethl7\BD\obj\Debug\BD.pdb
+C:\fpm\git\ServerSockethl7\BD\bin\Debug\BD.dll
+C:\fpm\git\ServerSockethl7\BD\bin\Debug\BD.pdb
+C:\fpm\git\ServerSockethl7\BD\bin\Debug\Entidades.dll
+C:\fpm\git\ServerSockethl7\BD\bin\Debug\Entidades.pdb
+C:\fpm\git\ServerSockethl7\BD\obj\Debug\BD.csproj.CopyComplete

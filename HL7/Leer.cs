@@ -9,11 +9,15 @@ namespace HL7
     public class HL7
     {
         private string renglonResultado;
+        private string muestraID;
+        private string muestra;
         private string path = "C:\\fpm\\git\\ServerSockethl7\\ServerSocketHL7\\";
         private string archivoNombre = "resultados.txt";
         public HL7()
         {
             renglonResultado= "R|";
+            muestra= "O|";
+            muestraID = "";
         }
         public void archivoLeer(ref List<Entidades.Analito> l_analitos)
         {
@@ -29,11 +33,12 @@ namespace HL7
                     string valor = "";
                     string renglon = sr.ReadLine();
                     while (renglon != null) {
-                        if (renglon.IndexOf(renglonResultado)==0) {
-                            string[] renglonValores=renglon.Split('|');
+                        if (renglon.IndexOf(renglonResultado) == 0)
+                        {
+                            string[] renglonValores = renglon.Split('|');
                             Entidades.Analito analito = new Entidades.Analito();
-                            nombre= renglonValores[2].ToString().Substring(3);
-                            valor= renglonValores[3].ToString();
+                            nombre = renglonValores[2].ToString().Substring(3);
+                            valor = renglonValores[3].ToString();
                             l_analitos.Find(x => x.Nombre == nombre).Valor = valor;
                         }
                         renglon = sr.ReadLine();
@@ -178,10 +183,17 @@ namespace HL7
                         valor = renglonValores[3].ToString();
                         l_analitos.Find(x => x.Nombre == nombre).Valor = valor;
                     }
+                    else if (renglon.IndexOf(muestra) == 0 && muestraID == "")
+                    {
+                        string[] renglonValores = renglon.Split('|');
+                        muestraID = renglonValores[2].ToString().Split('^')[0];
+                    }
+
                     //renglon = sr.ReadLine();
                 }
                 foreach (Entidades.Analito analito in l_analitos)
                 {
+                    analito.MuestraID = muestraID;
                     if (analito.Nombre == "SG")
                     {
                         if (analito.Valor.ToString().IndexOf(".") != -1) analito.Valor = analito.Valor.ToString().Replace('.', ',');
@@ -344,33 +356,33 @@ namespace HL7
         /// <param name="l_analitos"></param>
         private void agregarAnalitos(ref List<Entidades.Analito> l_analitos)
         {
-            l_analitos.Add(new Entidades.Analito { Nombre = "SG" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "LEU" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "NIT" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "pH" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "PRO" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "GLU" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "KET" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "UBG" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "BIL" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "BLD" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "COLOR" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "CLARITY" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "RBC" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "nRBC" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "WBC" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "EPC" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "Casts" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "HYA" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "GRAN" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "CRYSTALS" });
+            l_analitos.Add(new Entidades.Analito { Nombre = "SG",CodigoLis="SG" ,TipoValor="N"});
+            l_analitos.Add(new Entidades.Analito { Nombre = "LEU"});// NO VA KERN
+            l_analitos.Add(new Entidades.Analito { Nombre = "NIT",CodigoLis="NIT"});
+            l_analitos.Add(new Entidades.Analito { Nombre = "pH",CodigoLis="PH",TipoValor="N" });
+            l_analitos.Add(new Entidades.Analito { Nombre = "PRO",CodigoLis="PRO" });
+            l_analitos.Add(new Entidades.Analito { Nombre = "GLU",CodigoLis="GLU" });
+            l_analitos.Add(new Entidades.Analito { Nombre = "KET",CodigoLis="KET" });
+            l_analitos.Add(new Entidades.Analito { Nombre = "UBG",CodigoLis="URO" });
+            l_analitos.Add(new Entidades.Analito { Nombre = "BIL" ,CodigoLis="BIL"});
+            l_analitos.Add(new Entidades.Analito { Nombre = "BLD" ,CodigoLis="BLD"});
+            l_analitos.Add(new Entidades.Analito { Nombre = "COLOR" });//NO VA KERN
+            l_analitos.Add(new Entidades.Analito { Nombre = "CLARITY" });//NO VA  KERN
+            l_analitos.Add(new Entidades.Analito { Nombre = "RBC" ,CodigoLis="RBC"});
+            l_analitos.Add(new Entidades.Analito { Nombre = "nRBC" });//NO VA A KERN
+            l_analitos.Add(new Entidades.Analito { Nombre = "WBC",CodigoLis="WBC" });
+            l_analitos.Add(new Entidades.Analito { Nombre = "EPC" ,CodigoLis="SQEP"});
+            l_analitos.Add(new Entidades.Analito { Nombre = "Casts" });//NO VA A KERN
+            l_analitos.Add(new Entidades.Analito { Nombre = "HYA" ,CodigoLis="HYAL"});
+            l_analitos.Add(new Entidades.Analito { Nombre = "GRAN" });// VER!!! GUSTAVO
+            l_analitos.Add(new Entidades.Analito { Nombre = "CRYSTALS" });//NO VA A KERN
             l_analitos.Add(new Entidades.Analito { Nombre = "CaOX" });
             l_analitos.Add(new Entidades.Analito { Nombre = "CUSTOM1\\Fosf am" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "TRIP" });
+            l_analitos.Add(new Entidades.Analito { Nombre = "TRIP" });//VER !! GUSTAVO
             l_analitos.Add(new Entidades.Analito { Nombre = "UA" });
             l_analitos.Add(new Entidades.Analito { Nombre = "AMO" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "Bacteria" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "YST" });
+            l_analitos.Add(new Entidades.Analito { Nombre = "Bacteria" });//NO VA A KERN
+            l_analitos.Add(new Entidades.Analito { Nombre = "YST" });//NO VA A KERN
         }
     }
 }

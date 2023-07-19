@@ -16,3 +16,5 @@ C:\fpm\git\ServerSockethl7\ServerSocketHL7\obj\Debug\ServerSocketHL7.exe.manifes
 C:\fpm\git\ServerSockethl7\ServerSocketHL7\obj\Debug\ServerSocketHL7.application
 C:\fpm\git\ServerSockethl7\ServerSocketHL7\bin\Debug\Log.dll
 C:\fpm\git\ServerSockethl7\ServerSocketHL7\bin\Debug\Log.pdb
+C:\fpm\git\ServerSockethl7\ServerSocketHL7\bin\Debug\BD.dll
+C:\fpm\git\ServerSockethl7\ServerSocketHL7\bin\Debug\BD.pdb

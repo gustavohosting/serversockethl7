@@ -42,14 +42,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Entidades.dll" size="4096">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BD.dll" size="7168">
+      <assemblyIdentity name="BD" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>iK5MTUaNV7kHdGomn8QEv8Tw+pC5t3KfHae4zXLH6vs=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Entidades.dll" size="4608">
       <assemblyIdentity name="Entidades" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>TuAcxmst6jQzkvxg+tIQNO00OumZk1BNYjJbfAjUBCs=</dsig:DigestValue>
+        <dsig:DigestValue>VOdXVMf3mTiZY8ocb6p1MV6XjznqfRzYKWKFxFU+res=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,7 +73,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>153wDNUcquJwsb+KMDK+T5nJ9zbXKtoy11z1zOqMchs=</dsig:DigestValue>
+        <dsig:DigestValue>g2W+z/DoWnHzLm0e8U7adhICqtwN50y2h/Ib9oTlxVU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -85,7 +97,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>UT5xzcwniaJnNcFU+1CeoqDWxRpRIv4xl34UXRrA/f0=</dsig:DigestValue>
+        <dsig:DigestValue>alb+2MJds2fmNkS0LSXkksblr8TRh+M1Sb6QlQniNgY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

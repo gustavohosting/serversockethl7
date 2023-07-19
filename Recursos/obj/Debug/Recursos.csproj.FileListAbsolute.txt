@@ -1,0 +1,21 @@
+C:\Users\gustavo.FPMLAB\Desktop\Desarrollos\Ws Sucre\Interface\Recursos\bin\Debug\Recursos.dll
+C:\Users\gustavo.FPMLAB\Desktop\Desarrollos\Ws Sucre\Interface\Recursos\bin\Debug\Recursos.pdb
+C:\Users\gustavo.FPMLAB\Desktop\Desarrollos\Ws Sucre\Interface\Recursos\obj\Debug\Recursos.dll
+C:\Users\gustavo.FPMLAB\Desktop\Desarrollos\Ws Sucre\Interface\Recursos\obj\Debug\Recursos.pdb
+C:\Users\gustavo.FPMLAB\Desktop\Desarrollos\Ws Sucre\Interface\Recursos\obj\Debug\Recursos.csprojResolveAssemblyReference.cache
+C:\Users\Sucre 06\Desktop\Interface\Recursos\bin\Debug\Recursos.dll
+C:\Users\Sucre 06\Desktop\Interface\Recursos\bin\Debug\Recursos.pdb
+C:\Users\Sucre 06\Desktop\Interface\Recursos\obj\Debug\Recursos.csprojResolveAssemblyReference.cache
+C:\Users\Sucre 06\Desktop\Interface\Recursos\obj\Debug\Recursos.dll
+C:\Users\Sucre 06\Desktop\Interface\Recursos\obj\Debug\Recursos.pdb
+C:\fpm\git\Interface - orinas Diriu H-100\Recursos\bin\Debug\Recursos.dll
+C:\fpm\git\Interface - orinas Diriu H-100\Recursos\bin\Debug\Recursos.pdb
+C:\fpm\git\Interface - orinas Diriu H-100\Recursos\obj\Debug\Recursos.csproj.AssemblyReference.cache
+C:\fpm\git\Interface - orinas Diriu H-100\Recursos\obj\Debug\Recursos.csproj.CoreCompileInputs.cache
+C:\fpm\git\Interface - orinas Diriu H-100\Recursos\obj\Debug\Recursos.dll
+C:\fpm\git\Interface - orinas Diriu H-100\Recursos\obj\Debug\Recursos.pdb
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\Recursos\bin\Debug\Recursos.dll
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\Recursos\bin\Debug\Recursos.pdb
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\Recursos\obj\Debug\Recursos.csproj.CoreCompileInputs.cache
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\Recursos\obj\Debug\Recursos.dll
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\Recursos\obj\Debug\Recursos.pdb

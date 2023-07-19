@@ -1,0 +1,21 @@
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\LIS\bin\Debug\LIS.dll
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\LIS\bin\Debug\LIS.pdb
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\LIS\bin\Debug\Entidades.dll
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\LIS\bin\Debug\Recursos.dll
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\LIS\bin\Debug\Entidades.pdb
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\LIS\bin\Debug\Entidades.dll.config
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\LIS\bin\Debug\Recursos.pdb
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\LIS\obj\Debug\LIS.csproj.AssemblyReference.cache
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\LIS\obj\Debug\LIS.csproj.CoreCompileInputs.cache
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\LIS\obj\Debug\LIS.csproj.CopyComplete
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\LIS\obj\Debug\LIS.dll
+C:\fpm\git\Interface - orinas Diriu H-100 - V2\LIS\obj\Debug\LIS.pdb
+C:\fpm\git\ServerSockethl7\LIS\obj\Debug\LIS.csproj.AssemblyReference.cache
+C:\fpm\git\ServerSockethl7\LIS\obj\Debug\LIS.csproj.CoreCompileInputs.cache
+C:\fpm\git\ServerSockethl7\LIS\obj\Debug\LIS.dll
+C:\fpm\git\ServerSockethl7\LIS\obj\Debug\LIS.pdb
+C:\fpm\git\ServerSockethl7\LIS\bin\Debug\LIS.dll
+C:\fpm\git\ServerSockethl7\LIS\bin\Debug\LIS.pdb
+C:\fpm\git\ServerSockethl7\LIS\bin\Debug\Recursos.dll
+C:\fpm\git\ServerSockethl7\LIS\bin\Debug\Recursos.pdb
+C:\fpm\git\ServerSockethl7\LIS\obj\Debug\LIS.csproj.CopyComplete
