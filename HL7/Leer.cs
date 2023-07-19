@@ -117,7 +117,8 @@ namespace HL7
                         }
                         if (analito.Nombre == "HYA")
                         {
-
+                            int numero = Convert.ToInt32(analito.Valor);
+                            if (numero == 0) analito.Valor = "";
                         }
                         if (analito.Nombre == "GRAN")
                         {
