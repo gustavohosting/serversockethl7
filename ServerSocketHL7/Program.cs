@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Collections.Generic;
 using Entidades;
+using System.Net.NetworkInformation;
 
 namespace MultiThreadedTcpEchoServer
 {
@@ -49,28 +50,52 @@ namespace MultiThreadedTcpEchoServer
         {
             try
             {
-                string ip = "192.168.0.188";
-                _tcpListener = new TcpListener(IPAddress.Parse(ip), portNumberToListenOn);
-
-                //start the TCP listener that we have instantiated
-                _tcpListener.Start();
-                Console.WriteLine("Grabando log en " + log.PathLog);
-                Console.WriteLine("Server escuchando en IP -->"+ip+" port:"+portNumberToListenOn);
-                //leerHl7.archivoLeer();
-                while (true)
+                NetworkInterface[] adaptadores = System.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces();
+                foreach (NetworkInterface adaptador in adaptadores)
                 {
-                    //wait for client connections to come in
-                    var incomingTcpClientConnection = _tcpListener.AcceptTcpClient();
-
-                    Console.WriteLine(mensajeEspacio+"-->Accepted incoming client connection...");
-
-                    //create a new thread to process this client connection
-                    var clientProcessingThread = new Thread(ProcessClientConnection);
-
-                    //start processing client connections to this server
-                    clientProcessingThread.Start(incomingTcpClientConnection);
+                    if (adaptador.NetworkInterfaceType.ToString().IndexOf("Ethernet")>-1)
+                    {
+                        Console.WriteLine("Adaptador Nombre {0}", adaptador.Name);
+                        Console.WriteLine("          Descripcion {0}", adaptador.Description);
+                        Console.WriteLine("          Tipo {0}", adaptador.NetworkInterfaceType);
+                        IPInterfaceProperties adaptadorPropiedades = adaptador.GetIPProperties();
+                        MulticastIPAddressInformationCollection multicasts = adaptadorPropiedades.MulticastAddresses;
+                        if (multicasts.Count > 0)
+                        {
+                            foreach (IPAddressInformation multi in multicasts)
+                            {
+                                Console.WriteLine("          address {0}", multi.Address);
+                            }
+                        }
+                    }
                 }
+                string ip = "192.168.0.188";
+                if (false)
+                {
+                    IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
+                    ip = host.AddressList[0].ToString() ;
+                    _tcpListener = new TcpListener(IPAddress.Parse(ip), portNumberToListenOn);
+                    //start the TCP listener that we have instantiated
+                    _tcpListener.Start();
+                    Console.WriteLine("Grabando log en " + log.PathLog);
+                    Console.WriteLine("Server escuchando en IP -->" + ip + " port:" + portNumberToListenOn);
+                    //leerHl7.archivoLeer();
+                    while (true)
+                    {
+                        //wait for client connections to come in
+                        var incomingTcpClientConnection = _tcpListener.AcceptTcpClient();
 
+                        Console.WriteLine(mensajeEspacio + "-->Accepted incoming client connection...");
+
+                        //create a new thread to process this client connection
+                        var clientProcessingThread = new Thread(ProcessClientConnection);
+
+                        //start processing client connections to this server
+                        clientProcessingThread.Start(incomingTcpClientConnection);
+                    }
+                }
+                else
+                { Console.WriteLine("No se encontro interface local de red ethernet"); }
             }
             catch (Exception ex)
             {
