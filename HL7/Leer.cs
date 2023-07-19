@@ -313,17 +313,17 @@ namespace HL7
         private string resultadoProcesarContieneTrazas( string Valor)
         {
             
-            if (Valor.IndexOf("Neg.") != -1) Valor = "No Contiene";
+            if (Valor.IndexOf("Neg.") != -1)  Valor = "No Contiene";
+            if (Valor.IndexOf("Norm.") != -1) Valor = "No Contiene";
             if (Valor.IndexOf("Traces") != -1) Valor = "Contiene Trazas";
             if (Valor.IndexOf("+") != -1)
             {
-                Valor.Replace("+", "");
-                if (Valor == "1") Valor = "Contiene +";
-                if (Valor == "2") Valor = "Contiene +";
-                if (Valor == "3") Valor = "Contiene +";
-                if (Valor == "4") Valor = "Contiene +";
-                if (Valor == "5") Valor = "Contiene +";
-                if (Valor == "6") Valor = "Contiene +";
+                if (Valor.IndexOf("1")>=0) Valor = "+";
+                if (Valor.IndexOf("2") >= 0) Valor = "++";
+                if (Valor.IndexOf("3") >= 0) Valor = "+++";
+                if (Valor.IndexOf("4") >= 0) Valor = "++++";
+                if (Valor.IndexOf("5") >= 0) Valor = "+++++";
+                if (Valor.IndexOf("6") >= 0) Valor = "++++++";
             }
             return Valor;
         }
@@ -356,10 +356,10 @@ namespace HL7
         /// <param name="l_analitos"></param>
         private void agregarAnalitos(ref List<Entidades.Analito> l_analitos)
         {
-            l_analitos.Add(new Entidades.Analito { Nombre = "SG",CodigoLis="SG" });
+            l_analitos.Add(new Entidades.Analito { Nombre = "SG",CodigoLis="SG" ,TipoValor="N"});
             l_analitos.Add(new Entidades.Analito { Nombre = "LEU"});// NO VA KERN
             l_analitos.Add(new Entidades.Analito { Nombre = "NIT",CodigoLis="NIT"});
-            l_analitos.Add(new Entidades.Analito { Nombre = "pH",CodigoLis="PH" });
+            l_analitos.Add(new Entidades.Analito { Nombre = "pH",CodigoLis="PH" ,TipoValor="N"});
             l_analitos.Add(new Entidades.Analito { Nombre = "PRO",CodigoLis="PRO" });
             l_analitos.Add(new Entidades.Analito { Nombre = "GLU",CodigoLis="GLU" });
             l_analitos.Add(new Entidades.Analito { Nombre = "KET",CodigoLis="KET" });
@@ -380,7 +380,7 @@ namespace HL7
             l_analitos.Add(new Entidades.Analito { Nombre = "CUSTOM1\\Fosf am" ,CodigoLis="AMOR"});//?? VER CON MARIANO
             l_analitos.Add(new Entidades.Analito { Nombre = "TRIP",CodigoLis="FOSFTRIPLE" });//???VER !! GUSTAVO
             l_analitos.Add(new Entidades.Analito { Nombre = "UA" ,CodigoLis="URIC"});//??VER CON MARIANO
-            l_analitos.Add(new Entidades.Analito { Nombre = "AMO" });
+            l_analitos.Add(new Entidades.Analito { Nombre = "AMO" });// mariano por ahora no lo pasamos
             l_analitos.Add(new Entidades.Analito { Nombre = "Bacteria" });//NO VA A KERN
             l_analitos.Add(new Entidades.Analito { Nombre = "YST" });//NO VA A KERN
         }
