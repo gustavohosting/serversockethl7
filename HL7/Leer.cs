@@ -180,7 +180,16 @@ namespace HL7
                         string[] renglonValores = renglon.Split('|');
                         Entidades.Analito analito = new Entidades.Analito();
                         nombre = renglonValores[2].ToString().Substring(3);
-                        valor = renglonValores[3].ToString();
+                        if (renglonValores[3].ToString().IndexOf('^') == -1)
+                        {
+                            valor = renglonValores[3].ToString();
+                        }
+                        else
+                        {
+                            //resultado del sedimento
+                            valor = renglonValores[3].ToString().Split('^')[0];
+                        }
+
                         l_analitos.Find(x => x.Nombre == nombre).Valor = valor;
                     }
                     else if (renglon.IndexOf(muestra) == 0 && muestraID == "")
@@ -262,32 +271,71 @@ namespace HL7
                     }
                     if (analito.Nombre == "Casts")
                     {
+                        if (Convert.ToInt32(analito.Valor) == 0) analito.Valor = "";
                     }
                     if (analito.Nombre == "HYA")
                     {
-
+                        if (Convert.ToInt32(analito.Valor) == 0) analito.Valor = "";
                     }
                     if (analito.Nombre == "GRAN")
                     {
+                        if (Convert.ToInt32(analito.Valor) == 0) analito.Valor = "";
                     }
                     if (analito.Nombre == "CRYSTALS")
                     {
+                        int numero = Convert.ToInt32(analito.Valor);
+                        if (numero >= 0 && numero<=1) analito.Valor = "-";
+                        if (numero > 1 && numero <=14) analito.Valor = "+";
+                        if (numero > 14 && numero <= 32) analito.Valor = "++";
+                        if (numero > 14 && numero <= 32) analito.Valor = "++";
+                        if (numero > 32 && numero <= 66) analito.Valor = "+++";
+                        if (numero > 66) analito.Valor = "++++";
                     }
                     if (analito.Nombre == "CaOX")
                     {
+                        int numero = Convert.ToInt32(analito.Valor);
+                        if (numero >= 0 && numero <= 1) analito.Valor = "No se observa";
+                        if (numero > 1 && numero <= 5) analito.Valor = "Escasos";
+                        if (numero > 5 && numero <= 15) analito.Valor = "Frecuentes";
+                        if (numero > 15 && numero <= 25) analito.Valor = "Abundantes";
+                        if (numero > 25 ) analito.Valor = "Abundantes";
+
                     }
                     if (analito.Nombre == "CUSTOM1")
                     {
+                        int numero = Convert.ToInt32(analito.Valor);
+                        if (numero >= 0 && numero <= 1) analito.Valor = "No se observa";
+                        if (numero > 1 && numero <= 5) analito.Valor = "Escasos";
+                        if (numero > 5 && numero <= 15) analito.Valor = "Frecuentes";
+                        if (numero > 15 && numero <= 25) analito.Valor = "Abundantes";
+                        if (numero > 25) analito.Valor = "Abundantes";
                     }
                     if (analito.Nombre == "TRIP")
                     {
+                        int numero = Convert.ToInt32(analito.Valor);
+                        if (numero >= 0 && numero <= 1) analito.Valor = "No se observa";
+                        if (numero > 1 && numero <= 5) analito.Valor = "Escasos";
+                        if (numero > 5 && numero <= 15) analito.Valor = "Frecuentes";
+                        if (numero > 15 && numero <= 25) analito.Valor = "Abundantes";
+                        if (numero > 25) analito.Valor = "Abundantes";
                     }
                     if (analito.Nombre == "UA")
                     {
+                        int numero = Convert.ToInt32(analito.Valor);
+                        if (numero >= 0 && numero <= 1) analito.Valor = "No se observa";
+                        if (numero > 1 && numero <= 5) analito.Valor = "Escasos";
+                        if (numero > 5 && numero <= 15) analito.Valor = "Frecuentes";
+                        if (numero > 15 && numero <= 25) analito.Valor = "Abundantes";
+                        if (numero > 25) analito.Valor = "Abundantes";
                     }
                     if (analito.Nombre == "AMO")
                     {
-
+                        int numero = Convert.ToInt32(analito.Valor);
+                        if (numero >= 0 && numero <= 1) analito.Valor = "No se observa";
+                        if (numero > 1 && numero <= 5) analito.Valor = "Escasos";
+                        if (numero > 5 && numero <= 15) analito.Valor = "Frecuentes";
+                        if (numero > 15 && numero <= 25) analito.Valor = "Abundantes";
+                        if (numero > 25) analito.Valor = "Abundantes";
                     }
                     if (analito.Nombre == "Bacteria")
                     {
