@@ -359,11 +359,11 @@ namespace HL7
             l_analitos.Add(new Entidades.Analito { Nombre = "SG",CodigoLis="SG" });
             l_analitos.Add(new Entidades.Analito { Nombre = "LEU"});// NO VA KERN
             l_analitos.Add(new Entidades.Analito { Nombre = "NIT",CodigoLis="NIT"});
-            l_analitos.Add(new Entidades.Analito { Nombre = "pH",CodigoLis="PH",TipoValor="N" });
+            l_analitos.Add(new Entidades.Analito { Nombre = "pH",CodigoLis="PH" });
             l_analitos.Add(new Entidades.Analito { Nombre = "PRO",CodigoLis="PRO" });
             l_analitos.Add(new Entidades.Analito { Nombre = "GLU",CodigoLis="GLU" });
             l_analitos.Add(new Entidades.Analito { Nombre = "KET",CodigoLis="KET" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "UBG",CodigoLis="URO" });
+            l_analitos.Add(new Entidades.Analito { Nombre = "UBG",CodigoLis="URO" });//?? confirmar con Mariano
             l_analitos.Add(new Entidades.Analito { Nombre = "BIL" ,CodigoLis="BIL"});
             l_analitos.Add(new Entidades.Analito { Nombre = "BLD" ,CodigoLis="BLD"});
             l_analitos.Add(new Entidades.Analito { Nombre = "COLOR" });//NO VA KERN
@@ -371,15 +371,15 @@ namespace HL7
             l_analitos.Add(new Entidades.Analito { Nombre = "RBC" ,CodigoLis="RBC"});
             l_analitos.Add(new Entidades.Analito { Nombre = "nRBC" });//NO VA A KERN
             l_analitos.Add(new Entidades.Analito { Nombre = "WBC",CodigoLis="WBC" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "EPC" ,CodigoLis="SQEP"});
+            l_analitos.Add(new Entidades.Analito { Nombre = "EPC" ,CodigoLis="SQEP"});//?? confirmar con mariano
             l_analitos.Add(new Entidades.Analito { Nombre = "Casts" });//NO VA A KERN
-            l_analitos.Add(new Entidades.Analito { Nombre = "HYA" ,CodigoLis="HYAL"});
-            l_analitos.Add(new Entidades.Analito { Nombre = "GRAN" });// VER!!! GUSTAVO
+            l_analitos.Add(new Entidades.Analito { Nombre = "HYA" ,CodigoLis="HYAL"});//?? confirmar con mariano
+            l_analitos.Add(new Entidades.Analito { Nombre = "GRAN" });// ?? ver con mariano
             l_analitos.Add(new Entidades.Analito { Nombre = "CRYSTALS" });//NO VA A KERN
-            l_analitos.Add(new Entidades.Analito { Nombre = "CaOX" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "CUSTOM1\\Fosf am" });
-            l_analitos.Add(new Entidades.Analito { Nombre = "TRIP" });//VER !! GUSTAVO
-            l_analitos.Add(new Entidades.Analito { Nombre = "UA" });
+            l_analitos.Add(new Entidades.Analito { Nombre = "CaOX",CodigoLis="CAOX" });
+            l_analitos.Add(new Entidades.Analito { Nombre = "CUSTOM1\\Fosf am" ,CodigoLis="AMOR"});//?? VER CON MARIANO
+            l_analitos.Add(new Entidades.Analito { Nombre = "TRIP",CodigoLis="FOSFTRIPLE" });//???VER !! GUSTAVO
+            l_analitos.Add(new Entidades.Analito { Nombre = "UA" ,CodigoLis="URIC"});//??VER CON MARIANO
             l_analitos.Add(new Entidades.Analito { Nombre = "AMO" });
             l_analitos.Add(new Entidades.Analito { Nombre = "Bacteria" });//NO VA A KERN
             l_analitos.Add(new Entidades.Analito { Nombre = "YST" });//NO VA A KERN

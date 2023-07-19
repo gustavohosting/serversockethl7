@@ -49,7 +49,7 @@ namespace MultiThreadedTcpEchoServer
         {
             try
             {
-                string ip = "192.168.0.188";
+                string ip = "192.168.0.135";
                 _tcpListener = new TcpListener(IPAddress.Parse(ip), portNumberToListenOn);
 
                 //start the TCP listener that we have instantiated
@@ -167,6 +167,20 @@ namespace MultiThreadedTcpEchoServer
                         List<Entidades.Analito> l_analitos = new List<Analito>();
                         hl7.mensajeLeer(mensajeResultados, ref l_analitos);
                         grabar.grabarResultados(l_analitos);
+                        string texto = "";
+                        foreach (Entidades.Analito analito in l_analitos)
+                        {
+                            
+                            if (analito.CodigoLis != null)
+                            {
+                                texto = "Equipo->" + analito.Nombre + " Analito LIS->" + analito.CodigoLis + " Muestra->" + analito.MuestraID + " Resultado->" + analito.Valor;
+                                Console.WriteLine(texto);
+                            }
+                            else {
+                                texto = "Equipo->" + analito.Nombre + " Analito LIS-> NO TIENE EQUIVALENCIA O NO SE GRABA  Muestra->" + analito.MuestraID + " Resultado->" + analito.Valor;
+                                Console.WriteLine(texto);
+                            }
+                        }
                         Console.WriteLine("se grabo resultado muestra--->" + l_analitos[0].MuestraID);
                         log.escribirLog("se grabo resultado muestra-->" + l_analitos[0].MuestraID);
                     }
