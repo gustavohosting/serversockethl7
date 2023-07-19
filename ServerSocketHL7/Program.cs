@@ -49,7 +49,7 @@ namespace MultiThreadedTcpEchoServer
         {
             try
             {
-                string ip = "192.168.0.135";
+                string ip = "192.168.0.188";
                 _tcpListener = new TcpListener(IPAddress.Parse(ip), portNumberToListenOn);
 
                 //start the TCP listener that we have instantiated
@@ -166,6 +166,9 @@ namespace MultiThreadedTcpEchoServer
                         //procesar mensaje
                         List<Entidades.Analito> l_analitos = new List<Analito>();
                         hl7.mensajeLeer(mensajeResultados, ref l_analitos);
+                        mensajeResultados = "";
+                        hl7Data = string.Empty;
+                      
                         grabar.grabarResultados(l_analitos);
                         string texto = "";
                         foreach (Entidades.Analito analito in l_analitos)

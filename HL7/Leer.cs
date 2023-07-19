@@ -167,6 +167,7 @@ namespace HL7
             // procesa el resultado
             try
             {
+                muestraID = "";
                 agregarAnalitos(ref l_analitos);
                 //StreamReader sr = new StreamReader(path + archivoNombre);
                 string nombre = "";
