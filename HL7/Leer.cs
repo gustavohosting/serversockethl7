@@ -356,7 +356,7 @@ namespace HL7
         /// <param name="l_analitos"></param>
         private void agregarAnalitos(ref List<Entidades.Analito> l_analitos)
         {
-            l_analitos.Add(new Entidades.Analito { Nombre = "SG",CodigoLis="SG" ,TipoValor="N"});
+            l_analitos.Add(new Entidades.Analito { Nombre = "SG",CodigoLis="SG" });
             l_analitos.Add(new Entidades.Analito { Nombre = "LEU"});// NO VA KERN
             l_analitos.Add(new Entidades.Analito { Nombre = "NIT",CodigoLis="NIT"});
             l_analitos.Add(new Entidades.Analito { Nombre = "pH",CodigoLis="PH",TipoValor="N" });

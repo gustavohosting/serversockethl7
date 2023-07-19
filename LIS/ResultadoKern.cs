@@ -72,7 +72,7 @@ namespace LIS
             string nombreCampo = "campo";
             string campoXml = "";
             int idCampo = 1;
-            campoXml =  simboloXml.campoInicio(nombreCampo,idCampo.ToString().Trim()) + valorAnalito.ToString().Trim() + simboloXml.campoFin(nombreCampo, idCampo++.ToString().Trim()); 
+            campoXml =  simboloXml.campoInicio(nombreCampo,idCampo.ToString().Trim()) + valorAnalito.ToString().Trim() + simboloXml.campoFin(nombreCampo, idCampo.ToString().Trim()); 
             campoXml = campoXml + simboloXml.campoInicio(nombreCampo, idCampo.ToString().Trim()) + valorNumerico.ToString().Trim() + simboloXml.campoFin(nombreCampo, idCampo++.ToString().Trim());
             campoXml = campoXml + simboloXml.campoInicio(nombreCampo, idCampo.ToString().Trim()) + ValorTexto.ToString().Trim() + simboloXml.campoFin(nombreCampo, idCampo++.ToString().Trim());
             campoXml = campoXml + simboloXml.campoInicio(nombreCampo, idCampo.ToString().Trim()) + valorCampo4 + simboloXml.campoFin(nombreCampo, idCampo++.ToString().Trim());

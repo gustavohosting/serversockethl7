@@ -18,3 +18,7 @@ C:\fpm\git\ServerSockethl7\ServerSocketHL7\bin\Debug\Log.dll
 C:\fpm\git\ServerSockethl7\ServerSocketHL7\bin\Debug\Log.pdb
 C:\fpm\git\ServerSockethl7\ServerSocketHL7\bin\Debug\BD.dll
 C:\fpm\git\ServerSockethl7\ServerSocketHL7\bin\Debug\BD.pdb
+C:\fpm\git\ServerSockethl7\ServerSocketHL7\bin\Debug\LIS.dll
+C:\fpm\git\ServerSockethl7\ServerSocketHL7\bin\Debug\Recursos.dll
+C:\fpm\git\ServerSockethl7\ServerSocketHL7\bin\Debug\LIS.pdb
+C:\fpm\git\ServerSockethl7\ServerSocketHL7\bin\Debug\Recursos.pdb

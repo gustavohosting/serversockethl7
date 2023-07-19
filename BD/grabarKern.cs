@@ -30,7 +30,7 @@ namespace BD
                 int cantidadDeterminaciones = l_analitos.Count();
                 foreach (Entidades.Analito analitio in l_analitos)
                 {
-                    if (analitio.CodigoLis != "")
+                    if (analitio.CodigoLis !=null )
                     {
                         resultadoLIS = "";
                         muestraID = analitio.MuestraID;

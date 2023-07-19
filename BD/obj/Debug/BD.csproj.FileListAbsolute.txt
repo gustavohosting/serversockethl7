@@ -21,3 +21,7 @@ C:\fpm\git\ServerSockethl7\BD\bin\Debug\BD.pdb
 C:\fpm\git\ServerSockethl7\BD\bin\Debug\Entidades.dll
 C:\fpm\git\ServerSockethl7\BD\bin\Debug\Entidades.pdb
 C:\fpm\git\ServerSockethl7\BD\obj\Debug\BD.csproj.CopyComplete
+C:\fpm\git\ServerSockethl7\BD\bin\Debug\LIS.dll
+C:\fpm\git\ServerSockethl7\BD\bin\Debug\Recursos.dll
+C:\fpm\git\ServerSockethl7\BD\bin\Debug\LIS.pdb
+C:\fpm\git\ServerSockethl7\BD\bin\Debug\Recursos.pdb

@@ -167,7 +167,8 @@ namespace MultiThreadedTcpEchoServer
                         List<Entidades.Analito> l_analitos = new List<Analito>();
                         hl7.mensajeLeer(mensajeResultados, ref l_analitos);
                         grabar.grabarResultados(l_analitos);
-                        
+                        Console.WriteLine("se grabo resultado muestra--->" + l_analitos[0].MuestraID);
+                        log.escribirLog("se grabo resultado muestra-->" + l_analitos[0].MuestraID);
                     }
                     else if (hl7Data.Length > 1 && hl7Data.IndexOf(EOT) >= 0 && conexion && recibiendoResultados)
                     {
