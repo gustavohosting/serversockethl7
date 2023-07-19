@@ -16,7 +16,7 @@ namespace BD
         public grabarKern()
         {
         }
-        public bool grabarResultados(string equipo, string  analizador, List<Entidades.Analito> l_analitos)
+        public bool grabarResultados( List<Entidades.Analito> l_analitos)
         {
             LIS.ResultadoKern resultadoKern = new LIS.ResultadoKern();
             bool ok = false;
@@ -34,7 +34,6 @@ namespace BD
                     {
                         resultadoLIS = "";
                         muestraID = analitio.MuestraID;
-                        analizadorID = analizador;
                         //resultadoLIS = resultadoKern.xml(l_determinacionAnalizadorEquipo[i].Determinacion_analizador.CodigoLIS, l_determinacionAnalizadorEquipo[i].Determinacion_analizador.Resultado);
                         resultadoLIS = resultadoKern.xml(analitio.CodigoLis, analitio.Valor, analitio.TipoValor);
                         ejecutarSP(muestraID, analizadorID, ingreso, usuarioID, resultadoLIS);

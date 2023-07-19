@@ -22,6 +22,8 @@ namespace MultiThreadedTcpEchoServer
 
     class OurSimpleMultiThreadedTcpServer
     {
+        HL7.HL7 hl7 = new HL7.HL7();
+        BD.grabarKern grabar = new BD.grabarKern();
         private TcpListener _tcpListener;
         private bool conexion = false;
         private bool conexionPermiso = false;
@@ -163,8 +165,8 @@ namespace MultiThreadedTcpEchoServer
                         }
                         //procesar mensaje
                         List<Entidades.Analito> l_analitos = new List<Analito>();
-                        HL7.HL7 hl7 = new HL7.HL7();
                         hl7.mensajeLeer(mensajeResultados, ref l_analitos);
+                        grabar.grabarResultados(l_analitos);
                         
                     }
                     else if (hl7Data.Length > 1 && hl7Data.IndexOf(EOT) >= 0 && conexion && recibiendoResultados)
