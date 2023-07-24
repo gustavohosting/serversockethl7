@@ -50,30 +50,31 @@ namespace MultiThreadedTcpEchoServer
         {
             try
             {
-                NetworkInterface[] adaptadores = System.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces();
-                foreach (NetworkInterface adaptador in adaptadores)
-                {
-                    if (adaptador.NetworkInterfaceType.ToString().IndexOf("Ethernet")>-1)
-                    {
-                        Console.WriteLine("Adaptador Nombre {0}", adaptador.Name);
-                        Console.WriteLine("          Descripcion {0}", adaptador.Description);
-                        Console.WriteLine("          Tipo {0}", adaptador.NetworkInterfaceType);
-                        IPInterfaceProperties adaptadorPropiedades = adaptador.GetIPProperties();
-                        MulticastIPAddressInformationCollection multicasts = adaptadorPropiedades.MulticastAddresses;
-                        if (multicasts.Count > 0)
-                        {
-                            foreach (IPAddressInformation multi in multicasts)
-                            {
-                                Console.WriteLine("          address {0}", multi.Address);
-                            }
-                        }
-                    }
-                }
+                //NetworkInterface[] adaptadores = System.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces();
+                //foreach (NetworkInterface adaptador in adaptadores)
+                //{
+                //    if (adaptador.NetworkInterfaceType.ToString().IndexOf("Ethernet")>-1)
+                //    {
+                //        Console.WriteLine("Adaptador Nombre {0}", adaptador.Name);
+                //        Console.WriteLine("          Descripcion {0}", adaptador.Description);
+                //        Console.WriteLine("          Tipo {0}", adaptador.NetworkInterfaceType);
+                //        IPInterfaceProperties adaptadorPropiedades = adaptador.GetIPProperties();
+                //        MulticastIPAddressInformationCollection multicasts = adaptadorPropiedades.MulticastAddresses;
+                //        if (multicasts.Count > 0)
+                //        {
+                //            foreach (IPAddressInformation multi in multicasts)
+                //            {
+                //                Console.WriteLine("          address {0}", multi.Address);
+                //                //multi.
+                //            }
+                //        }
+                //    }
+                //}
                 string ip = "192.168.0.188";
-                if (false)
+                if (true)
                 {
-                    IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
-                    ip = host.AddressList[0].ToString() ;
+                    //IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
+                    //ip = host.AddressList[0].ToString() ;
                     _tcpListener = new TcpListener(IPAddress.Parse(ip), portNumberToListenOn);
                     //start the TCP listener that we have instantiated
                     _tcpListener.Start();
