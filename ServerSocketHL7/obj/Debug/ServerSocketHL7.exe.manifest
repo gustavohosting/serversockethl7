@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HL7.dll" size="12800">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HL7.dll" size="10752">
       <assemblyIdentity name="HL7" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>fOP5JDUCfImYL7E+xsDlm1EBsmeEUDeFR9yJt2IUKos=</dsig:DigestValue>
+        <dsig:DigestValue>HTmKwI2xTPwJVF+i9ataNAFxuuhhy/9yccj2pZn6Ku4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
