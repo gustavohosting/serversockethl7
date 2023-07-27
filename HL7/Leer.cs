@@ -317,48 +317,48 @@ namespace HL7
                     if (analito.Nombre == "CaOX")
                     {
                         int numero = Convert.ToInt32(analito.Valor);
-                        if (numero >= 0 && numero <= 1) analito.Valor = "No se observa";
-                        if (numero > 1 && numero <= 5) analito.Valor = "Escasos";
-                        if (numero > 5 && numero <= 15) analito.Valor = "Frecuentes";
-                        if (numero > 15 && numero <= 25) analito.Valor = "Abundantes";
-                        if (numero > 25 ) analito.Valor = "Abundantes";
+                        if (numero >= 0 && numero <= 1) analito.Valor = "NOBS";
+                        if (numero > 1 && numero <= 5) analito.Valor = "ESC";
+                        if (numero > 5 && numero <= 15) analito.Valor = "FRE";
+                        if (numero > 15 && numero <= 25) analito.Valor = "ABUN";
+                        if (numero > 25 ) analito.Valor = "ABUN";
 
                     }
-                    if (analito.Nombre == "CUSTOM1")
+                    if (analito.Nombre == "CUSTOM1\\Fosf am")
                     {
                         int numero = Convert.ToInt32(analito.Valor);
-                        if (numero >= 0 && numero <= 1) analito.Valor = "No se observa";
-                        if (numero > 1 && numero <= 5) analito.Valor = "Escasos";
-                        if (numero > 5 && numero <= 15) analito.Valor = "Frecuentes";
-                        if (numero > 15 && numero <= 25) analito.Valor = "Abundantes";
-                        if (numero > 25) analito.Valor = "Abundantes";
+                        if (numero >= 0 && numero <= 1) analito.Valor = "NOBS";
+                        if (numero > 1 && numero <= 5) analito.Valor = "ESC";
+                        if (numero > 5 && numero <= 15) analito.Valor = "FRE";
+                        if (numero > 15 && numero <= 25) analito.Valor = "ABUN";
+                        if (numero > 25) analito.Valor = "ABUN";
                     }
                     if (analito.Nombre == "TRIP")
                     {
                         int numero = Convert.ToInt32(analito.Valor);
-                        if (numero >= 0 && numero <= 1) analito.Valor = "No se observa";
-                        if (numero > 1 && numero <= 5) analito.Valor = "Escasos";
-                        if (numero > 5 && numero <= 15) analito.Valor = "Frecuentes";
-                        if (numero > 15 && numero <= 25) analito.Valor = "Abundantes";
-                        if (numero > 25) analito.Valor = "Abundantes";
+                        if (numero >= 0 && numero <= 1) analito.Valor = "NOBS";
+                        if (numero > 1 && numero <= 5) analito.Valor = "ESC";
+                        if (numero > 5 && numero <= 15) analito.Valor = "FRE";
+                        if (numero > 15 && numero <= 25) analito.Valor = "ABUN";
+                        if (numero > 25) analito.Valor = "ABUN";
                     }
                     if (analito.Nombre == "UA")
                     {
                         int numero = Convert.ToInt32(analito.Valor);
-                        if (numero >= 0 && numero <= 1) analito.Valor = "No se observa";
-                        if (numero > 1 && numero <= 5) analito.Valor = "Escasos";
-                        if (numero > 5 && numero <= 15) analito.Valor = "Frecuentes";
-                        if (numero > 15 && numero <= 25) analito.Valor = "Abundantes";
-                        if (numero > 25) analito.Valor = "Abundantes";
+                        if (numero >= 0 && numero <= 1) analito.Valor = "NOBS";
+                        if (numero > 1 && numero <= 5) analito.Valor = "ESC";
+                        if (numero > 5 && numero <= 15) analito.Valor = "FRE";
+                        if (numero > 15 && numero <= 25) analito.Valor = "ABUN";
+                        if (numero > 25) analito.Valor = "ABUN";
                     }
                     if (analito.Nombre == "AMO")
                     {
                         int numero = Convert.ToInt32(analito.Valor);
-                        if (numero >= 0 && numero <= 1) analito.Valor = "No se observa";
-                        if (numero > 1 && numero <= 5) analito.Valor = "Escasos";
-                        if (numero > 5 && numero <= 15) analito.Valor = "Frecuentes";
-                        if (numero > 15 && numero <= 25) analito.Valor = "Abundantes";
-                        if (numero > 25) analito.Valor = "Abundantes";
+                        if (numero >= 0 && numero <= 1) analito.Valor = "NOBS";
+                        if (numero > 1 && numero <= 5) analito.Valor = "ESC";
+                        if (numero > 5 && numero <= 15) analito.Valor = "FRE";
+                        if (numero > 15 && numero <= 25) analito.Valor = "ABUND";
+                        if (numero > 25) analito.Valor = "ABUND";
                     }
                     if (analito.Nombre == "Bacteria")
                     {
@@ -448,7 +448,7 @@ namespace HL7
             l_analitos.Add(new Entidades.Analito { Nombre = "WBC",CodigoLis="WBC" });
             l_analitos.Add(new Entidades.Analito { Nombre = "EPC" ,CodigoLis="SQEP"});//?? confirmar con mariano
             l_analitos.Add(new Entidades.Analito { Nombre = "Casts" });//NO VA A KERN
-            l_analitos.Add(new Entidades.Analito { Nombre = "HYA" ,CodigoLis="HYAL"});//?? confirmar con mariano
+            l_analitos.Add(new Entidades.Analito { Nombre = "HYA" });//?? confirmar con mariano
             l_analitos.Add(new Entidades.Analito { Nombre = "GRAN" });// ?? ver con mariano
             l_analitos.Add(new Entidades.Analito { Nombre = "CRYSTALS" });//NO VA A KERN
             l_analitos.Add(new Entidades.Analito { Nombre = "CaOX",CodigoLis="CAOX" });
