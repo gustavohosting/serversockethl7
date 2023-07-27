@@ -224,7 +224,7 @@ namespace HL7
                     {
                         if (analito.Valor.ToString().IndexOf("Pos.") != -1) analito.Valor = "Positivo";
                         else analito.Valor = "Negativo";
-                        analito.Valor = "";
+                        analito.TipoValor= "";
                     }
                     if (analito.Nombre == "pH")
                     {
@@ -267,7 +267,7 @@ namespace HL7
                     {
                         string v = analito.Valor;
                         string t = analito.TipoValor;
-                         resultadosMenosValorMasde30(ref v, ref t);
+                         resultadosMenosValorMasde30_v2(ref v, ref t);
                         analito.Valor = v;
                         analito.TipoValor = t;
                     }
@@ -327,8 +327,8 @@ namespace HL7
                     if (analito.Nombre == "CUSTOM1\\Fosf am")
                     {
                         int numero = Convert.ToInt32(analito.Valor);
-                        if (numero >= 0 && numero <= 1) analito.Valor = "NOBS";
-                        if (numero > 1 && numero <= 5) analito.Valor = "ESC";
+                        if (numero >= 0 && numero < 1) analito.Valor = "NOBS";
+                        if (numero >= 1 && numero <= 5) analito.Valor = "ESC";
                         if (numero > 5 && numero <= 15) analito.Valor = "FRE";
                         if (numero > 15 && numero <= 25) analito.Valor = "ABUN";
                         if (numero > 25) analito.Valor = "ABUN";
@@ -411,7 +411,7 @@ namespace HL7
                 int numero = Convert.ToInt32(Valor);
                 if (Convert.ToInt32(Valor) == 0)
                 {
-                    Valor = "<1";
+                    Valor = "NC";
                     TipoValor = "";
                 }
                 else if (Convert.ToInt32(Valor) <= 30)
@@ -425,6 +425,30 @@ namespace HL7
                 }
             }
         }
+        private void resultadosMenosValorMasde30_v2(ref string Valor, ref string TipoValor)
+        {
+            char[] numeros = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
+            if (Valor.IndexOfAny(numeros) >= 0)
+            {
+                int numero = Convert.ToInt32(Valor);
+                if (Convert.ToInt32(Valor) == 0)
+                {
+                    Valor = "NOBS";
+                    TipoValor = "";
+                }
+                else if (Convert.ToInt32(Valor) <= 30)
+                {
+                    TipoValor = c_tipoNumerico;
+                    //se deja el mismo valor
+                }
+                else
+                {
+                    Valor = ">30";
+                    TipoValor = "";
+                }
+            }
+        }
+
         /// <summary>
         /// Cargar analitos de la prestacion
         /// </summary>
