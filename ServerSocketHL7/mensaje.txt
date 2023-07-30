@@ -2,4 +2,5 @@
 usuario 256
 timeout 20230728 13:14:38
 equipo IQ
-CODEBAR
+CODEBAR 01010047701
+esta muestra esta a nombre de gustavo
