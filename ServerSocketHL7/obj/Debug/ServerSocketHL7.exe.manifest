@@ -49,7 +49,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Qz/DyljYHoxgDEPTwJ8MUKl83sEcm2GVSwX4VROwWeI=</dsig:DigestValue>
+        <dsig:DigestValue>NZr2jm1sTvsDbVtXfDb8IcHcXSr0yuefAWAGspEY8ts=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HL7.dll" size="10752">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HL7.dll" size="11264">
       <assemblyIdentity name="HL7" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>o5k/lnmAOTKzJbrmmRbQdfNG/V3dlKxH//HinkqpZIQ=</dsig:DigestValue>
+        <dsig:DigestValue>CuGZFFUnCG9SiwK7xyLamyZCtCJ6mNGT919e9wLxLbo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

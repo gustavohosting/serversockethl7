@@ -78,7 +78,7 @@ namespace BD
                 string ingreso = horaIngreso;
                 string usu = usuarioID;
                 string res = resultadoxmlKern;
-                SqlCommand comando = new SqlCommand("interfaz_resultados", conexion.abrir());
+                SqlCommand comando = new SqlCommand("interfaz_resultados_fpm", conexion.abrir());
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.AddWithValue("@BARCODE", muestraID);
                 comando.Parameters.AddWithValue("@ANALIZADOR_COD", analizadorID);

@@ -241,7 +241,7 @@ namespace HL7
                     }
                     if (analito.Nombre == "KET")
                     {
-                        analito.Valor = resultadoProcesarContieneTrazas(analito.Valor);
+                        analito.Valor = resultadoProcesarContieneTrazas_v2(analito.Valor);
                     }
                     if (analito.Nombre == "UBG")
                     {
@@ -280,7 +280,7 @@ namespace HL7
                     {
                         string v = analito.Valor;
                         string t = analito.TipoValor;
-                        resultadosMenosValorMasde30(ref v, ref t);
+                        resultadosMenosValorMasde30_v2(ref v, ref t);
                         analito.Valor = v;
                         analito.TipoValor = t;
                     }
@@ -398,6 +398,23 @@ namespace HL7
             }
             return Valor;
         }
+        private string resultadoProcesarContieneTrazas_v2(string Valor)
+        {
+
+            if (Valor.IndexOf("Neg.") != -1) Valor = "NC";
+            if (Valor.IndexOf("Norm.") != -1) Valor = "NC";
+            if (Valor.IndexOf("Traces") != -1) Valor = "Trazas";
+            if (Valor.IndexOf("+") != -1)
+            {
+                if (Valor.IndexOf("1") >= 0) Valor = "+";
+                if (Valor.IndexOf("2") >= 0) Valor = "++";
+                if (Valor.IndexOf("3") >= 0) Valor = "+++";
+                if (Valor.IndexOf("4") >= 0) Valor = "++++";
+                if (Valor.IndexOf("5") >= 0) Valor = "+++++";
+                if (Valor.IndexOf("6") >= 0) Valor = "++++++";
+            }
+            return Valor;
+        }
         /// <summary>
         /// retorna menor de .....1,2, mayor de 30
         /// </summary>
@@ -433,7 +450,7 @@ namespace HL7
                 int numero = Convert.ToInt32(Valor);
                 if (Convert.ToInt32(Valor) == 0)
                 {
-                    Valor = "NOBS";
+                    Valor = "NC";
                     TipoValor = "";
                 }
                 else if (Convert.ToInt32(Valor) <= 30)
@@ -443,7 +460,7 @@ namespace HL7
                 }
                 else
                 {
-                    Valor = ">30";
+                    Valor = "&lt;30";
                     TipoValor = "";
                 }
             }
