@@ -460,7 +460,7 @@ namespace HL7
                 }
                 else
                 {
-                    Valor = "&lt;30";
+                    Valor = "&gt30";
                     TipoValor = "";
                 }
             }
