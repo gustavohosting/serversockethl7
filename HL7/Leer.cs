@@ -253,7 +253,7 @@ namespace HL7
                     }
                     if (analito.Nombre == "BLD")
                     {
-                        analito.Valor = resultadoProcesarContieneTrazas(analito.Valor);
+                        analito.Valor = resultadoProcesarContieneTrazas_v2(analito.Valor);
                     }
                     if (analito.Nombre == "COLOR")
                     {
@@ -330,8 +330,8 @@ namespace HL7
                         if (numero >= 0 && numero < 1) analito.Valor = "NOBS";
                         if (numero >= 1 && numero <= 5) analito.Valor = "ESC";
                         if (numero > 5 && numero <= 15) analito.Valor = "FRE";
-                        if (numero > 15 && numero <= 25) analito.Valor = "ABUN";
-                        if (numero > 25) analito.Valor = "ABUN";
+                        if (numero > 15 && numero <= 25) analito.Valor = "ABUND";
+                        if (numero > 25) analito.Valor = "ABUND";
                     }
                     if (analito.Nombre == "TRIP")
                     {
@@ -460,7 +460,7 @@ namespace HL7
                 }
                 else
                 {
-                    Valor = "&gt30";
+                    Valor = "&gt;30";
                     TipoValor = "";
                 }
             }
