@@ -70,7 +70,7 @@ namespace MultiThreadedTcpEchoServer
                 //        }
                 //    }
                 //}
-                string ip = "192.168.0.15";
+                string ip = "192.168.1.106";
                 if (true)
                 {
                     //IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
